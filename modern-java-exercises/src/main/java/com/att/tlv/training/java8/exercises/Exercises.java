@@ -1,8 +1,0 @@
-package com.att.tlv.training.java8.exercises;
-
-public class Exercises {
-
-    public static <T> T replaceThisWithSolution() {
-        throw new ExerciseNotCompletedException();
-    }
-}
