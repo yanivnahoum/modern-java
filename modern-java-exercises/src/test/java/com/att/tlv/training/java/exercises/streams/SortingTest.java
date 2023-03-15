@@ -21,7 +21,7 @@ class SortingTest {
 
         List<String> sortedNames = Sorting.sortNames(persons);
 
-        assertThat(sortedNames).containsExactly(alice.getName(), bob.getName(), jim.getName());
+        assertThat(sortedNames).containsExactly(alice.name(), bob.name(), jim.name());
     }
 
     @Test

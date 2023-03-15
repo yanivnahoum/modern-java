@@ -1,7 +1,5 @@
 package com.att.tlv.training.java.interfaces;
 
-import com.google.common.collect.ImmutableList;
-
 import java.util.List;
 import java.util.ListIterator;
 
@@ -24,8 +22,8 @@ interface CoolList<T> extends List<T> {
         }
     }
 
-    static <T> ImmutableList<T> asImmutable(CoolList<T> list) {
-        return ImmutableList.copyOf(list);
+    static <T> List<T> asImmutable(CoolList<T> list) {
+        return List.copyOf(list);
     }
 }
 
@@ -34,7 +32,7 @@ public class StaticMethods {
     public void foo(CoolList<String> coolStrings) {
         // Static methods belong to the class, or in this case - the interface,
         // and are accessible exclusively via the interface.
-        ImmutableList<String> strings = CoolList.asImmutable(coolStrings);
+        List<String> strings = CoolList.asImmutable(coolStrings);
         strings.forEach(System.out::println);
     }
 }

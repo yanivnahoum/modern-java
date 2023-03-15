@@ -1,7 +1,6 @@
 package com.att.tlv.training.java.lambdas;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -34,7 +33,7 @@ public class MethodReference {
     }    
     
     public void moo() {
-        List<String> names = Arrays.asList("a", "b", "c");
+        var names = List.of("a", "b", "c");
         
         // Calling the constructor with a lambda
         names.forEach(s -> new Printer(s));

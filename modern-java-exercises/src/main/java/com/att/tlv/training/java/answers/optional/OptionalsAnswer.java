@@ -15,19 +15,19 @@ public class OptionalsAnswer {
     
     public static OptionalInt findLengthOfLongestName(List<Person> persons) {
         return persons.stream()
-            .mapToInt(p -> p.getName().length())
+                .mapToInt(p -> p.name().length())
             .max();          
     }
     
     public static OptionalDouble findAverageId(List<Person> persons) {
         return persons.stream()
-                .mapToLong(Person::getId)
+                .mapToLong(Person::id)
                 .average();          
     }
     
     public static Optional<Person> findFirstCentenarian(List<Person> persons) {
         return persons.stream()
-                .filter(p -> p.getAge() >= 100)
+                .filter(p -> p.age() >= 100)
                 .findFirst();          
     }
     

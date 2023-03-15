@@ -23,7 +23,7 @@ public class Streams {
     // Stream operations support pipelining and internal iteration (more on this later on).
 
     public void collection() {
-        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Eve");
+        var names = List.of("Alice", "Bob", "Charlie", "David", "Eve");
         Stream<String> stream = names.stream();
     }
 

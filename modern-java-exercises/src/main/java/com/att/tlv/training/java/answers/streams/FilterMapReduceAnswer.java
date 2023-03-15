@@ -25,8 +25,8 @@ public class FilterMapReduceAnswer {
      */
     public static int getProductOfAgesWhereIdIsGreaterThan1005(List<Person> persons) {
         return persons.stream()
-                .filter(p -> p.getId() > 1005)
-                .mapToInt(Person::getAge)
+                .filter(p -> p.id() > 1005)
+                .mapToInt(Person::age)
                 .reduce(1, (a, b) -> a * b);
     }
     
@@ -39,13 +39,13 @@ public class FilterMapReduceAnswer {
     public static long getMinIdWhereNameHasAnAOrMinus1(List<Person> persons) {
         return persons.stream()
                 .filter(FilterMapReduceAnswer::nameContainsTheLetterA)
-                .mapToLong(Person::getId)
+                .mapToLong(Person::id)
                 .min()
                 .orElse(-1);
     }
     
     private static boolean nameContainsTheLetterA(Person person) {
-        return person.getName()
+        return person.name()
                 .toLowerCase()
                 .contains("a");
     }

@@ -18,8 +18,8 @@ public class FlatMapAnswer {
      */  
     public static Set<String> getUniqueChildrenNames(List<Person> persons) {
         return persons.stream()
-                .flatMap(p -> p.getChildren().stream())
-                .map(Person::getName)
+                .flatMap(p -> p.children().stream())
+                .map(Person::name)
                 .collect(toSet());
     }
     
@@ -31,9 +31,9 @@ public class FlatMapAnswer {
      */     
     public static int getSumOfGrandChildrenAges(List<Person> persons) {
         return persons.stream()
-                .flatMap(p -> p.getChildren().stream())
-                .flatMap(p -> p.getChildren().stream())
-                .mapToInt(Person::getAge)
+                .flatMap(p -> p.children().stream())
+                .flatMap(p -> p.children().stream())
+                .mapToInt(Person::age)
                 .sum();
     }
     
@@ -46,13 +46,13 @@ public class FlatMapAnswer {
      */     
     public static long[] getIdsOfChildrenOver21(List<Person> persons) {
         return persons.stream()
-                    .flatMap(p -> p.getChildren().stream())
-                    .filter(FlatMapAnswer::isOver21)
-                    .mapToLong(Person::getId)
+                .flatMap(p -> p.children().stream())
+                .filter(FlatMapAnswer::isOver21)
+                .mapToLong(Person::id)
                     .toArray();
     }
     
     private static boolean isOver21(Person person) {
-        return person.getAge() > 21;
+        return person.age() > 21;
     }
 }

@@ -4,7 +4,6 @@ import com.att.tlv.training.java.data.Player;
 import com.att.tlv.training.java.data.Players;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +23,7 @@ public class BasicCollectors {
     }
 
     public void list() {
-        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Allen");
+        var names = List.of("Alice", "Bob", "Charlie", "David", "Allen");
         System.out.println(names);
 
         // Find the names that have exactly five letters
@@ -53,7 +52,7 @@ public class BasicCollectors {
     }
     
     public void set() {
-        List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Allen");
+        var names = List.of("Alice", "Bob", "Charlie", "David", "Allen");
         System.out.println(names);
         
         // Find all the distinct name lengths in the list
@@ -77,13 +76,13 @@ public class BasicCollectors {
         
         // id -> player
         Map<Long, Player> map = players.stream()
-                .collect(toMap(Player::getId, Function.identity()));
+                .collect(toMap(Player::id, Function.identity()));
         
         System.out.println(map.getClass().getSimpleName() + ": " + map);
         
         // How about this: length(firstName) -> lastName     
 //        Map<Integer, String> nameLengths = players.stream()
-//                .collect(toMap(p -> p.getFirstName().length(), Player::getLastName));  
+//                .collect(toMap(p -> p.firstName().length(), Player::lastName));
 //        
 //        System.out.println(nameLengths);
         

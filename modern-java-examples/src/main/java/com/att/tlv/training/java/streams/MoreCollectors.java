@@ -1,6 +1,5 @@
 package com.att.tlv.training.java.streams;
 
-import java.util.Arrays;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import static java.util.stream.Collectors.summingInt;
 
 public class MoreCollectors {
     
-    private final List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Allen");
+    private final List<String> names = List.of("Alice", "Bob", "Charlie", "David", "Allen");
     
     public static void main(String[] args) {
         new MoreCollectors().join();

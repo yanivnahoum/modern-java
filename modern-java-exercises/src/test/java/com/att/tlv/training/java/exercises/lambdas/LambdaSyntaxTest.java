@@ -1,27 +1,25 @@
 package com.att.tlv.training.java.exercises.lambdas;
 
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class LambdaSyntaxTest {
 
     @Test
     void testBuildIdEquals() {
-        Person alice = new Person(1, "Alice", 20);
-        Person bob = new Person(2, "Bob", 25);
-        Person jim = new Person(3, "Jim", 30);
+        var alice = new Person(1, "Alice", 20);
+        var bob = new Person(2, "Bob", 25);
+        var jim = new Person(3, "Jim", 30);
 
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        var persons = List.of(alice, bob, jim);
 
-        List<Person> filteredPersons = persons.stream()
-                .filter(LambdaSyntax.buildIdEquals(bob.getId()))
-                .collect(toList());
+        var filteredPersons = persons.stream()
+                .filter(LambdaSyntax.buildIdEquals(bob.id()))
+                .toList();
 
         assertThat(filteredPersons).containsExactly(bob);
     }
@@ -29,15 +27,15 @@ class LambdaSyntaxTest {
     @Test
     void testBuildIdEqualsWithEmptyResult() {
         long baseId = 10L;
-        Person alice = new Person(baseId + 1, "Alice", 20);
-        Person bob = new Person(baseId + 2, "Bob", 25);
+        var alice = new Person(baseId + 1, "Alice", 20);
+        var bob = new Person(baseId + 2, "Bob", 25);
         Person jim = new Person(baseId + 3, "Jim", 30);
 
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        var persons = List.of(alice, bob, jim);
 
-        List<Person> filteredPersons = persons.stream()
+        var filteredPersons = persons.stream()
                 .filter(LambdaSyntax.buildIdEquals(baseId))
-                .collect(toList());
+                .toList();
 
         assertThat(filteredPersons).isEmpty();
     }
@@ -45,65 +43,65 @@ class LambdaSyntaxTest {
     @Test
     void testBuildIdEqualsWithMultipleValues() {
         long id = 1L;
-        Person alice = new Person(id, "Alice", 20);
-        Person bob = new Person(id, "Bob", 25);
-        Person jim = new Person(3, "Jim", 30);
+        var alice = new Person(id, "Alice", 20);
+        var bob = new Person(id, "Bob", 25);
+        var jim = new Person(3, "Jim", 30);
 
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        var persons = List.of(alice, bob, jim);
 
-        List<Person> filteredPersons = persons.stream()
+        var filteredPersons = persons.stream()
                 .filter(LambdaSyntax.buildIdEquals(id))
-                .collect(toList());
+                .toList();
 
         assertThat(filteredPersons).containsExactly(alice, bob);
     }
 
     @Test
     void testBuildNameStartsWith() {
-        Person alice = new Person(1, "Alice", 20);
-        Person bob = new Person(2, "Bob", 25);
-        Person jim = new Person(3, "Jim", 30);
+        var alice = new Person(1, "Alice", 20);
+        var bob = new Person(2, "Bob", 25);
+        var jim = new Person(3, "Jim", 30);
 
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        var persons = List.of(alice, bob, jim);
 
-        String prefix = alice.getName()
+        String prefix = alice.name()
                 .substring(0, 2);
-        List<Person> filteredPersons = persons.stream()
+        var filteredPersons = persons.stream()
                 .filter(LambdaSyntax.buildNameStartsWith(prefix))
-                .collect(toList());
+                .toList();
 
         assertThat(filteredPersons).containsExactly(alice);
     }
 
     @Test
     void testBuildNameStartsWithWithEmptyResult() {
-        Person alice = new Person(1, "Alice", 20);
-        Person bob = new Person(2, "Bob", 25);
-        Person jim = new Person(3, "Jim", 30);
+        var alice = new Person(1, "Alice", 20);
+        var bob = new Person(2, "Bob", 25);
+        var jim = new Person(3, "Jim", 30);
 
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        var persons = List.of(alice, bob, jim);
 
-        String prefix = alice.getName() + "In Wonderland";
-        List<Person> filteredPersons = persons.stream()
+        String prefix = alice.name() + "In Wonderland";
+        var filteredPersons = persons.stream()
                 .filter(LambdaSyntax.buildNameStartsWith(prefix))
-                .collect(toList());
-                
+                .toList();
+
         assertThat(filteredPersons).isEmpty();
     }
 
     @Test
     void testBuildNameStartsWithWithMultipleValues() {
-        Person aliceSmith = new Person(1, "Alice Smith", 20);
-        Person bob = new Person(2, "Bob", 25);
-        Person aliceAnderson = new Person(3, "Alice Anderson", 30);
+        var aliceSmith = new Person(1, "Alice Smith", 20);
+        var bob = new Person(2, "Bob", 25);
+        var aliceAnderson = new Person(3, "Alice Anderson", 30);
 
-        List<Person> persons = ImmutableList.of(aliceSmith, bob, aliceAnderson);
+        var persons = List.of(aliceSmith, bob, aliceAnderson);
 
-        String prefix = aliceSmith.getName()
+        String prefix = aliceSmith.name()
                 .substring(0, 2);
-        List<Person> filteredPersons = persons.stream()
+        var filteredPersons = persons.stream()
                 .filter(LambdaSyntax.buildNameStartsWith(prefix))
-                .collect(toList());
+                .toList();
 
         assertThat(filteredPersons).containsExactly(aliceSmith, aliceAnderson);
     }

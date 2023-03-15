@@ -1,11 +1,11 @@
 package com.att.tlv.training.java.answers.lambdas;
 
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.base.Function;
 
 import java.util.Random;
 import java.util.function.Consumer;
 import java.util.function.DoubleConsumer;
+import java.util.function.Function;
 import java.util.function.IntSupplier;
 import java.util.function.LongFunction;
 import java.util.function.LongToDoubleFunction;
@@ -45,7 +45,7 @@ public class FunctionalInterfacesAnswer {
     // Function
 
     public Function<Person, String> getPersonName() {
-        return Person::getName;
+        return Person::name;
     }
 
     public LongFunction<String> numAsString() {
@@ -53,7 +53,7 @@ public class FunctionalInterfacesAnswer {
     }
 
     public ToIntFunction<Person> getPersonAge() {
-        return Person::getAge;
+        return Person::age;
     }
 
     public LongToDoubleFunction divideByTwoPointFive() {

@@ -25,7 +25,7 @@ public class CollectorOptionals {
 
         // teamName -> oldest player in team (if any)
         Map<String, Optional<Player>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName, maxBy(comparingInt(Player::getAge))));
+                .collect(groupingBy(Player::teamName, maxBy(comparingInt(Player::age))));
 
         System.out.println(map);
     }
@@ -36,7 +36,7 @@ public class CollectorOptionals {
         
         // teamName -> player with shortest last name (if any)
         Map<String, Optional<Player>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName, minBy(comparing(Player::getLastName, comparingInt(String::length)))));
+                .collect(groupingBy(Player::teamName, minBy(comparing(Player::lastName, comparingInt(String::length)))));
         
         System.out.println(map);
     }

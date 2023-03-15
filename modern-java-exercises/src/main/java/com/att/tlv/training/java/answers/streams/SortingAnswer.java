@@ -16,44 +16,44 @@ public class SortingAnswer {
     
     public static List<String> sortNames(List<Person> persons) {
         return persons.stream()
-                .map(Person::getName)
+                .map(Person::name)
                 .sorted()
                 .collect(toList());
     }
     
     public static List<Person> sortByAge(List<Person> persons) {
         return persons.stream()
-                .sorted(comparingInt(Person::getAge))
+                .sorted(comparingInt(Person::age))
                 .collect(toList());
     }
     
     public static List<Person> sortByIdDescending(List<Person> persons) {
         return persons.stream()
-                .sorted(comparingLong(Person::getId).reversed())
+                .sorted(comparingLong(Person::id).reversed())
                 .collect(toList());
     }
     
     public static List<Person> sortByNameAndThenId(List<Person> persons) {
         return persons.stream()
-                .sorted(comparing(Person::getName).thenComparingLong(Person::getId))
+                .sorted(comparing(Person::name).thenComparingLong(Person::id))
                 .collect(toList());
     }
     
     public static List<Person> sortByAgeDescendingAndThenId(List<Person> persons) {
         return persons.stream()
-                .sorted(comparingInt(Person::getAge).reversed().thenComparingLong(Person::getId))
+                .sorted(comparingInt(Person::age).reversed().thenComparingLong(Person::id))
                 .collect(toList());
     }
     
     public static List<Person> sortByNameAndThenIdDescending(List<Person> persons) {
         return persons.stream()
-                .sorted(comparing(Person::getName).thenComparing(comparingLong(Person::getId).reversed()))
+                .sorted(comparing(Person::name).thenComparing(comparingLong(Person::id).reversed()))
                 .collect(toList());
     }
     
     public static List<Person> sortByNameWithCaseInsensitiveOrder(List<Person> persons) {
         return persons.stream()
-                .sorted(comparing(Person::getName, String.CASE_INSENSITIVE_ORDER))
+                .sorted(comparing(Person::name, String.CASE_INSENSITIVE_ORDER))
                 .collect(toList());
     }
 }

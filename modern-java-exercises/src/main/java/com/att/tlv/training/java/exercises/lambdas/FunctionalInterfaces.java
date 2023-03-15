@@ -1,60 +1,61 @@
 package com.att.tlv.training.java.exercises.lambdas;
 
-import com.att.tlv.training.java.exercises.Exercises;
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.base.Function;
 
 import java.util.function.Consumer;
 import java.util.function.DoubleConsumer;
+import java.util.function.Function;
 import java.util.function.IntSupplier;
 import java.util.function.LongFunction;
 import java.util.function.LongToDoubleFunction;
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
+import static com.att.tlv.training.java.exercises.Exercises.replaceThisWithSolution;
+
 public class FunctionalInterfaces {
 
     // Runnable
 
     public Runnable writeHelloToStdout() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     // Consumer
 
     public Consumer<String> writeToStdout() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public DoubleConsumer writeCosineToStdOut() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     // Supplier
 
     public Supplier<Thread> buildThread() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public IntSupplier getRandomInt() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     // Function
 
     public Function<Person, String> getPersonName() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public LongFunction<String> numAsString() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public ToIntFunction<Person> getPersonAge() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public LongToDoubleFunction divideByTwoPointFive() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 }

@@ -1,9 +1,10 @@
 package com.att.tlv.training.java.exercises.lambdas;
 
-import com.att.tlv.training.java.exercises.Exercises;
 import com.att.tlv.training.java.exercises.data.Person;
 
 import java.util.function.Predicate;
+
+import static com.att.tlv.training.java.exercises.Exercises.replaceThisWithSolution;
 
 public class LambdaSyntax {
 
@@ -35,7 +36,7 @@ public class LambdaSyntax {
      * id specified, and false otherwise.
      */    
     public static Predicate<Person> buildIdEquals(long id) {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
     
     /**
@@ -43,7 +44,7 @@ public class LambdaSyntax {
      * prefix specified, and false otherwise.
      */    
     public static Predicate<Person> buildNameStartsWith(String prefix) {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 }
   

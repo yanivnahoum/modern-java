@@ -1,6 +1,5 @@
 package com.att.tlv.training.java.lambdas;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -8,7 +7,7 @@ public class LambdaSyntax {
     
     public void iteration() {
 
-        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        var numbers = List.of(1, 2, 3, 4, 5, 6);
 
         // External
         for (int i = 0; i < numbers.size(); i++) {
@@ -56,15 +55,12 @@ public class LambdaSyntax {
         
 
         numbers.forEach(v -> System.out.println(v));
-        
-        
-        
-        
 
-        numbers.forEach(System.out::println);        
+
+        numbers.forEach(System.out::println);
     }
 
-    private final List<String> names = Arrays.asList("Alice", "Bob", "Charlie", "David", "Allen");
+    private final List<String> names = List.of("Alice", "Bob", "Charlie", "David", "Allen");
     public void demo() {
 
         // Main syntax: params -> body
@@ -106,7 +102,7 @@ public class LambdaSyntax {
         names.forEach(new Consumer<String>() {
 
             @Override
-            public void accept(String t) {
+            public void accept(String s) {
                 System.out.println(toString());
                 System.out.println(this);
             }
@@ -114,9 +110,8 @@ public class LambdaSyntax {
     }
     
     public void lambdaScope() {
-        
         names.forEach(s -> System.out.println(toString()));
-        names.forEach(s -> System.out.println(this));        
+        names.forEach(s -> System.out.println(this));
     }
     
     @Override

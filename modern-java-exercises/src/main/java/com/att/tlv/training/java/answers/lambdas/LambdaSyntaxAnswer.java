@@ -11,7 +11,7 @@ public class LambdaSyntaxAnswer {
      * id specified, and false otherwise.
      */
     public static Predicate<Person> buildIdEquals(long id) {
-        return p -> p.getId() == id;
+        return p -> p.id() == id;
     }
 
     /**
@@ -19,6 +19,6 @@ public class LambdaSyntaxAnswer {
      * prefix specified, and false otherwise.
      */
     public static Predicate<Person> buildNameStartsWith(String prefix) {
-        return p -> p.getName().startsWith(prefix);
+        return p -> p.name().startsWith(prefix);
     }
 }

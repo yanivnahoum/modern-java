@@ -1,7 +1,6 @@
 package com.att.tlv.training.java.exercises.streams;
 
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
@@ -21,7 +20,7 @@ class MoreCollectorsTest {
         Person alice = new Person(1000, "Alice", 18);
         Person bob = new Person(2000, "Bob", 11);
         Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         String names = getNamesAsString(persons);
 
@@ -40,11 +39,11 @@ class MoreCollectorsTest {
         Person alice = new Person(200, "Alice", 18);
         Person bob = new Person(300, "Bob", 11);
         Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         long sumOfIds = getSumofIds(persons);
 
-        assertThat(sumOfIds).isEqualTo(alice.getId() + bob.getId() + jim.getId());
+        assertThat(sumOfIds).isEqualTo(alice.id() + bob.id() + jim.id());
     }
 
     @Test
@@ -59,7 +58,7 @@ class MoreCollectorsTest {
         Person alice = new Person(200, "Alice", 18);
         Person bob = new Person(300, "Bob", 11);
         Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         long count = getNumOfPersonsOlderThanX(persons, 10);
 
@@ -71,7 +70,7 @@ class MoreCollectorsTest {
         Person alice = new Person(200, "Alice", 18);
         Person bob = new Person(300, "Bob", 11);
         Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         long count = getNumOfPersonsOlderThanX(persons, 18);
 
@@ -96,11 +95,11 @@ class MoreCollectorsTest {
         Person alice = new Person(200, "Alice", 18);
         Person bob = new Person(300, "Bob", 11);
         Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         String longestName = getLongestNameOrEmptyString(persons);
 
-        assertThat(longestName).isEqualTo(alice.getName());
+        assertThat(longestName).isEqualTo(alice.name());
     }
 
     @Test
@@ -108,21 +107,21 @@ class MoreCollectorsTest {
         Person alice = new Person(200, "Alice", 18);
         Person bob = new Person(300, "Bob", 11);
         Person jim = new Person(100, "Jimmy", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         String longestName = getLongestNameOrEmptyString(persons);
 
-        assertThat(longestName).isEqualTo(alice.getName());
+        assertThat(longestName).isEqualTo(alice.name());
     }
 
     @Test
     void testGetLongestNameOrEmptyStringWithSingleEntry() {
         Person alice = new Person(200, "Alice", 18);
-        List<Person> persons = ImmutableList.of(alice);
+        List<Person> persons = List.of(alice);
 
         String longestName = getLongestNameOrEmptyString(persons);
 
-        assertThat(longestName).isEqualTo(alice.getName());
+        assertThat(longestName).isEqualTo(alice.name());
     }
 
     @Test
@@ -137,21 +136,21 @@ class MoreCollectorsTest {
         Person alice = new Person(20, "Alice", 18);
         Person bob = new Person(31, "Bob", 11);
         Person jim = new Person(40, "Jimmy", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         int sumOfEvenAges = getSumOfEvenAges(persons);
 
-        assertThat(sumOfEvenAges).isEqualTo(alice.getAge() + jim.getAge());
+        assertThat(sumOfEvenAges).isEqualTo(alice.age() + jim.age());
     }
 
     @Test
     void testGetSumOfEvenAgesWithSingleEntry() {
         Person alice = new Person(20, "Alice", 18);
-        List<Person> persons = ImmutableList.of(alice);
+        List<Person> persons = List.of(alice);
 
         int sumOfEvenAges = getSumOfEvenAges(persons);
 
-        assertThat(sumOfEvenAges).isEqualTo(alice.getAge());
+        assertThat(sumOfEvenAges).isEqualTo(alice.age());
     }
 
     @Test

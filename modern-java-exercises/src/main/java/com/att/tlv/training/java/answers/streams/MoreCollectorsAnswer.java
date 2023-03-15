@@ -27,7 +27,7 @@ public class MoreCollectorsAnswer {
     }
 
     private static String getFirstLetterOfNameInLowerCase(Person person) {
-        return person.getName()
+        return person.name()
                 .substring(0, 1)
                 .toLowerCase();
     }
@@ -38,7 +38,7 @@ public class MoreCollectorsAnswer {
      */
     public static long getSumofIds(List<Person> persons) {
         return persons.stream()
-                .collect(summingLong(Person::getId));
+                .collect(summingLong(Person::id));
     }
 
     /**
@@ -47,7 +47,7 @@ public class MoreCollectorsAnswer {
      */
     public static long getNumOfPersonsOlderThanX(List<Person> persons, int x) {
         return persons.stream()
-                .filter(p -> p.getAge() > x)
+                .filter(p -> p.age() > x)
                 .collect(counting());
     }
 
@@ -59,7 +59,7 @@ public class MoreCollectorsAnswer {
      */
     public static String getLongestNameOrEmptyString(List<Person> persons) {
         return persons.stream()
-                .map(Person::getName)
+                .map(Person::name)
                 .collect(reducing("", (n1, n2) -> n2.length() > n1.length() ? n2 : n1));
     }
 
@@ -70,6 +70,6 @@ public class MoreCollectorsAnswer {
      */
     public static int getSumOfEvenAges(List<Person> persons) {
         return persons.stream()
-                .collect(reducing(0, Person::getAge, (res, e) -> e % 2 == 0 ? res + e : res));
+                .collect(reducing(0, Person::age, (res, e) -> e % 2 == 0 ? res + e : res));
     }
 }

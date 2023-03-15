@@ -2,8 +2,6 @@ package com.att.tlv.training.java.streams;
 
 import com.att.tlv.training.java.data.Player;
 import com.att.tlv.training.java.data.Players;
-import com.google.common.base.MoreObjects;
-import com.google.common.collect.ImmutableList;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,7 +23,7 @@ public class Sorting {
         Employee alice = new Employee(1001, "Alice");
         Employee bob = new Employee(1002, "Bob");
         Employee jim = new Employee(1000, "Jim");
-        List<Employee> employees = ImmutableList.of(alice, bob, jim);
+        List<Employee> employees = List.of(alice, bob, jim);
         System.out.println(employees);
 
         // Employee implements Comparable<Employee>
@@ -55,7 +53,7 @@ public class Sorting {
         System.out.println(players);
 
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparing(Player::getFirstName))
+                .sorted(comparing(Player::firstName))
                 .collect(toList());
 
         System.out.println(sortedPlayers);
@@ -67,7 +65,7 @@ public class Sorting {
         System.out.println(players);
 
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparing(Player::getFirstName).reversed())
+                .sorted(comparing(Player::firstName).reversed())
                 .collect(toList());
 
         System.out.println(sortedPlayers);
@@ -79,7 +77,7 @@ public class Sorting {
         System.out.println(players);
 
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparingLong(Player::getId))
+                .sorted(comparingLong(Player::id))
                 .collect(toList());
 
         System.out.println(sortedPlayers);
@@ -91,7 +89,7 @@ public class Sorting {
         System.out.println(players);
 
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparing(Player::getTeamName).thenComparingDouble(Player::getSalary))
+                .sorted(comparing(Player::teamName).thenComparingDouble(Player::salary))
                 .collect(toList());
 
         System.out.println(sortedPlayers);
@@ -103,7 +101,7 @@ public class Sorting {
         System.out.println(players);
 
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparing(Player::getTeamName).thenComparing(comparingDouble(Player::getSalary).reversed()))
+                .sorted(comparing(Player::teamName).thenComparing(comparingDouble(Player::salary).reversed()))
                 .collect(toList());
 
         System.out.println(sortedPlayers);
@@ -113,9 +111,9 @@ public class Sorting {
         List<Player> players = Players.getAll();
         Collections.shuffle(players);
         System.out.println(players);
-        
-        Comparator<Player> byLengthOfLastName = 
-                (p1, p2) -> Integer.compare(p1.getLastName().length(), p2.getLastName().length());
+
+        Comparator<Player> byLengthOfLastName =
+                (p1, p2) -> Integer.compare(p1.lastName().length(), p2.lastName().length());
         
         List<Player> sortedPlayers = players.stream()
                 .sorted(byLengthOfLastName)
@@ -136,7 +134,7 @@ public class Sorting {
         System.out.println(players);
         
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparing(Player::getLastName, comparingInt(String::length)))
+                .sorted(comparing(Player::lastName, comparingInt(String::length)))
                 .collect(toList());
         
         System.out.println(sortedPlayers);
@@ -152,69 +150,16 @@ public class Sorting {
         // while the overload that takes two argument does not need a comparable key since a comparator for the key
         // is provided as the second argument.
         List<Player> sortedPlayers = players.stream()
-                .sorted(comparing(p -> p, comparing(Player::getFirstName)))
+                .sorted(comparing(p -> p, comparing(Player::firstName)))
                 .collect(toList());
         
         System.out.println(sortedPlayers);
     }
 }
 
-class Employee implements Comparable<Employee> {
-
-    private final long id;
-    private final String name;
-
-    public Employee(long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
+record Employee(long id, String name) implements Comparable<Employee> {
     @Override
     public int compareTo(Employee other) {
         return Long.compare(this.id, other.id);
-    }
-    
-    
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (int) (id ^ (id >>> 32));
-        return result;
-    }
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (!(obj instanceof Employee)) {
-            return false;
-        }
-        Employee other = (Employee) obj;
-        if (id != other.id) {
-            return false;
-        }
-        return true;
-    }
-    
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-                .add("id", id)
-                .add("name", name)
-                .toString();
     }
 }

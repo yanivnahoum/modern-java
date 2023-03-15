@@ -18,7 +18,7 @@ public class FlatMap {
         List<Player> players = Players.getAll();
         
         Set<String> nicknames = players.stream()
-            .flatMap(p -> p.getNicknames().stream())
+                .flatMap(p -> p.nicknames().stream())
             .collect(toSet());
         
         System.out.println(nicknames);

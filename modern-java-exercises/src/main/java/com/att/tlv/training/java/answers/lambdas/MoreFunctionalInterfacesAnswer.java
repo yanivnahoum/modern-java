@@ -28,7 +28,7 @@ public class MoreFunctionalInterfacesAnswer {
     }
 
     public ObjIntConsumer<Person> writePersonAgeInXYearsToStdout() {
-        return (p, v) -> System.out.println(p.getAge() + v);
+        return (p, v) -> System.out.println(p.age() + v);
     }
     
     // BiFunction
@@ -58,7 +58,7 @@ public class MoreFunctionalInterfacesAnswer {
     // Predicate
     
     public Predicate<Person> getIsNameExactlyDan() {
-        return p -> "Dan".equals(p.getName());
+        return p -> "Dan".equals(p.name());
     }
     
     public IntPredicate isEven() {
@@ -66,6 +66,6 @@ public class MoreFunctionalInterfacesAnswer {
     }
     
     public BiPredicate<Person, String> getIsPersonAgeOver40AndIsStringNotNull() {
-        return (p, s) -> p.getAge() > 40 && s != null;
+        return (p, s) -> p.age() > 40 && s != null;
     }
 }

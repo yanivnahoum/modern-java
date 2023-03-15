@@ -23,7 +23,7 @@ public class GroupingCollectorsAnswer {
      */    
     public static Map<Long, List<Person>> groupById(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::getId));
+                .collect(groupingBy(Person::id));
     }
 
     /**
@@ -33,7 +33,7 @@ public class GroupingCollectorsAnswer {
      */     
     public static Map<String, List<Long>> groupByNameToIds(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::getName, mapping(Person::getId, toList())));
+                .collect(groupingBy(Person::name, mapping(Person::id, toList())));
     }
 
     /**
@@ -44,7 +44,7 @@ public class GroupingCollectorsAnswer {
      */    
     public static Map<String, Set<Integer>> groupByNameToDistinctAges(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::getName, mapping(Person::getAge, toSet())));
+                .collect(groupingBy(Person::name, mapping(Person::age, toSet())));
     }
     
     
@@ -55,7 +55,7 @@ public class GroupingCollectorsAnswer {
      */     
     public static Map<String, Integer> groupByNameToSumOfAges(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::getName, summingInt(Person::getAge)));
+                .collect(groupingBy(Person::name, summingInt(Person::age)));
     }
 
     /**
@@ -66,7 +66,7 @@ public class GroupingCollectorsAnswer {
      */
     public static Map<Integer, Map<String, Long>> groupByAgeToNameToCount(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::getAge, groupingBy(Person::getName, counting())));
+                .collect(groupingBy(Person::age, groupingBy(Person::name, counting())));
     }
     
     /**
@@ -76,6 +76,6 @@ public class GroupingCollectorsAnswer {
      */     
     public static Map<Boolean, List<Person>> partitionByIsAllowedToVote(List<Person> persons) {
         return persons.stream()
-                .collect(partitioningBy(p -> p.getAge() >= 18));
+                .collect(partitioningBy(p -> p.age() >= 18));
     }    
 }

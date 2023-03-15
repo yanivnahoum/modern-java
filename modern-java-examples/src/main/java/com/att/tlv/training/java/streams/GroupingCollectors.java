@@ -24,13 +24,13 @@ public class GroupingCollectors {
 
         // teamName -> list of Players in team
         Map<String, List<Player>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName));
+                .collect(groupingBy(Player::teamName));
 
         System.out.println(map);
 
         // The toList() collector is the default collector used for the Map values
         map = players.stream()
-                .collect(groupingBy(Player::getTeamName, toList()));
+                .collect(groupingBy(Player::teamName, toList()));
     }
 
     public void groupByLengthOfFirstName() {
@@ -39,7 +39,7 @@ public class GroupingCollectors {
 
         // length(firstName) -> list of Players
         Map<Integer, List<Player>> map = players.stream()
-                .collect(groupingBy(p -> p.getFirstName().length()));
+                .collect(groupingBy(p -> p.firstName().length()));
 
         System.out.println(map);
     }
@@ -50,7 +50,7 @@ public class GroupingCollectors {
 
         // teamName -> list of first names
         Map<String, List<String>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName, mapping(Player::getFirstName, toList())));
+                .collect(groupingBy(Player::teamName, mapping(Player::firstName, toList())));
 
         System.out.println(map);
     }
@@ -61,7 +61,7 @@ public class GroupingCollectors {
 
         // teamName -> list of distinct ages
         Map<String, List<Integer>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName, mapping(Player::getAge, toList())));
+                .collect(groupingBy(Player::teamName, mapping(Player::age, toList())));
 
         System.out.println(map);
 
@@ -74,7 +74,7 @@ public class GroupingCollectors {
 
         // teamName -> map: length(firstName)-> list of Players
         Map<String, Map<Integer, List<Player>>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName, groupingBy(p -> p.getFirstName().length())));
+                .collect(groupingBy(Player::teamName, groupingBy(p -> p.firstName().length())));
 
         System.out.println(map);
     }
@@ -86,8 +86,8 @@ public class GroupingCollectors {
 
         // teamName -> map: length(firstName)-> list of last names
         Map<String, Map<Integer, List<String>>> map = players.stream()
-                .collect(groupingBy(Player::getTeamName, 
-                        groupingBy(p -> p.getFirstName().length(), mapping(Player::getLastName, toList()))));
+                .collect(groupingBy(Player::teamName,
+                        groupingBy(p -> p.firstName().length(), mapping(Player::lastName, toList()))));
 
         System.out.println(map);
     }
@@ -103,15 +103,15 @@ public class GroupingCollectors {
     }
     
     private static boolean isAWarrior(Player player) {
-        return Players.WARRIORS.equals(player.getTeamName());
+        return Players.WARRIORS.equals(player.teamName());
     }
     
     public void partitionByIsAWarriorToSumOfIds() {
         List<Player> players = Players.getAll();
-        System.out.println(players);     
-        
+        System.out.println(players);
+
         Map<Boolean, Long> map = players.stream()
-                .collect(partitioningBy(GroupingCollectors::isAWarrior, summingLong(Player::getId)));
+                .collect(partitioningBy(GroupingCollectors::isAWarrior, summingLong(Player::id)));
         
         System.out.println(map);
     }

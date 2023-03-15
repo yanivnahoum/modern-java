@@ -24,6 +24,6 @@ public class MethodReferencesAnswer {
     }
     
     private static boolean isAMinor(Person person) {
-        return person.getAge() < AGE_OF_MAJORITY;
+        return person.age() < AGE_OF_MAJORITY;
     }
 }

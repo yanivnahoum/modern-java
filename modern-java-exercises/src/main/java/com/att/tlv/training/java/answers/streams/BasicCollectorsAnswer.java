@@ -20,7 +20,7 @@ public class BasicCollectorsAnswer {
      */
     public static List<String> getNames(List<Person> persons) {
         return persons.stream()
-                .map(Person::getName)
+                .map(Person::name)
                 .collect(toList());
     }
 
@@ -32,7 +32,7 @@ public class BasicCollectorsAnswer {
      */
     public static LinkedList<Person> getMinorsOnly(List<Person> persons) {
         return persons.stream()
-                .filter(p -> p.getAge() < 18)
+                .filter(p -> p.age() < 18)
                 .collect(toCollection(LinkedList::new));
     }
 
@@ -43,7 +43,7 @@ public class BasicCollectorsAnswer {
      */
     public static Map<Long, Person> mapIdToPerson(List<Person> persons) {
         return persons.stream()
-                .collect(toMap(Person::getId, Function.identity()));
+                .collect(toMap(Person::id, Function.identity()));
     }
 
     /**
@@ -53,7 +53,7 @@ public class BasicCollectorsAnswer {
      */
     public static Map<Integer, String> mapAgeToNames(List<Person> persons) {
         return persons.stream()
-                .collect(toMap(Person::getAge, Person::getName, String::concat));
+                .collect(toMap(Person::age, Person::name, String::concat));
     }
 
     /**
@@ -63,6 +63,6 @@ public class BasicCollectorsAnswer {
      */
     public static Map<String, Long> mapNameToCount(List<Person> persons) {
         return persons.stream()
-                .collect(toMap(Person::getName, p -> 1L, Long::sum));
+                .collect(toMap(Person::name, p -> 1L, Long::sum));
     }
 }

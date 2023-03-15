@@ -15,21 +15,21 @@ public class StreamOptionals {
     public void findOldestPlayerUsingReduce() {
         OptionalInt oldestPlayer = Players.getAll()
                 .stream()
-                .mapToInt(Player::getAge)
+                .mapToInt(Player::age)
                 .reduce(Integer::max);
     }
 
     public void findOldestPlayerUsingMax() {
         OptionalInt oldestPlayer = Players.getAll()
                 .stream()
-                .mapToInt(Player::getAge)
+                .mapToInt(Player::age)
                 .max();
     }
 
     public void findYoungestPlayer() {
         OptionalInt youngestPlayer = Players.getAll()
                 .stream()
-                .mapToInt(Player::getAge)
+                .mapToInt(Player::age)
                 .min();
     }
 

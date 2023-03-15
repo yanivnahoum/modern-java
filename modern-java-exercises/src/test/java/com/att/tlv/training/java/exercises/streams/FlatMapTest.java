@@ -1,13 +1,12 @@
 package com.att.tlv.training.java.exercises.streams;
 
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import static java.util.Collections.emptyList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class FlatMapTest {
@@ -18,7 +17,7 @@ class FlatMapTest {
         Person alice = new Person(1000, "Alice", 18);
         Person bob = new Person(2000, "Bob", 11);
         Person jim = new Person(3000, "Jim", 10);
-        PERSONS_WITH_NO_CHILDREN = ImmutableList.of(alice, bob, jim);
+        PERSONS_WITH_NO_CHILDREN = List.of(alice, bob, jim);
     }
 
     @Test
@@ -26,23 +25,23 @@ class FlatMapTest {
         final String ANDY = "Andy";
         Person andy = new Person(1002, ANDY, 3);
         Person anna = new Person(1001, "Anna", 5);
-        Person alice = new Person(1000, "Alice", 35, anna, andy);
+        Person alice = new Person(1000, "Alice", 35, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, bill);
+        Person bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person andy2 = new Person(3001, ANDY, 10);
-        Person jim = new Person(3000, "Jim", 39, andy2);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        Person jim = new Person(3000, "Jim", 39, List.of(andy2));
+        List<Person> persons = List.of(alice, bob, jim);
 
         Set<String> names = FlatMap.getUniqueChildrenNames(persons);
 
-        assertThat(names).containsOnly(ANDY, anna.getName(), bill.getName());
+        assertThat(names).containsOnly(ANDY, anna.name(), bill.name());
     }
 
     @Test
     void testGetUniqueChildrenNamesWithEmptyInput() {
-        Set<String> names = FlatMap.getUniqueChildrenNames(Collections.emptyList());
+        Set<String> names = FlatMap.getUniqueChildrenNames(emptyList());
 
         assertThat(names).isEmpty();
     }
@@ -57,27 +56,27 @@ class FlatMapTest {
     @Test
     void testGetSumOfGrandChildrenAges() {
         Person alvin = new Person(1003, "Alvin", 10);
-        Person andy = new Person(1002, "Andy", 41, alvin);
+        Person andy = new Person(1002, "Andy", 41, List.of(alvin));
         Person anna = new Person(1001, "Anna", 45);
-        Person alice = new Person(1000, "Alice", 60, anna, andy);
+        Person alice = new Person(1000, "Alice", 60, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, bill);
+        Person bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person gerard = new Person(3001, "Gerard", 1);
         Person jonah = new Person(3001, "Jonah", 1);
-        Person james = new Person(3001, "James", 22, jonah, gerard);
-        Person jim = new Person(3000, "Jim", 49, james);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        Person james = new Person(3001, "James", 22, List.of(jonah, gerard));
+        Person jim = new Person(3000, "Jim", 49, List.of(james));
+        List<Person> persons = List.of(alice, bob, jim);
 
         int sum = FlatMap.getSumOfGrandChildrenAges(persons);
 
-        assertThat(sum).isEqualTo(alvin.getAge() + gerard.getAge() + jonah.getAge());
+        assertThat(sum).isEqualTo(alvin.age() + gerard.age() + jonah.age());
     }
 
     @Test
     void testGetSumOfGrandChildrenAgesWithEmptyInput() {
-        int sum = FlatMap.getSumOfGrandChildrenAges(Collections.emptyList());
+        int sum = FlatMap.getSumOfGrandChildrenAges(emptyList());
 
         assertThat(sum).isZero();
     }
@@ -93,14 +92,14 @@ class FlatMapTest {
     void testGetSumOfGrandChildrenAgesWithNoGrandChildren() {
         Person andy = new Person(1002, "Andy", 21);
         Person anna = new Person(1001, "Anna", 25);
-        Person alice = new Person(1000, "Alice", 55, anna, andy);
+        Person alice = new Person(1000, "Alice", 55, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, bill);
+        Person bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person james = new Person(3001, "James", 22);
-        Person jim = new Person(3000, "Jim", 49, james);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        Person jim = new Person(3000, "Jim", 49, List.of(james));
+        List<Person> persons = List.of(alice, bob, jim);
 
         int sum = FlatMap.getSumOfGrandChildrenAges(persons);
 
@@ -111,23 +110,23 @@ class FlatMapTest {
     void testGetIdsOfChildrenOver21() {
         Person andy = new Person(1002, "Andy", 21);
         Person anna = new Person(1001, "Anna", 25);
-        Person alice = new Person(1000, "Alice", 55, anna, andy);
+        Person alice = new Person(1000, "Alice", 55, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, bill);
+        Person bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person james = new Person(3001, "James", 22);
-        Person jim = new Person(3000, "Jim", 49, james);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        Person jim = new Person(3000, "Jim", 49, List.of(james));
+        List<Person> persons = List.of(alice, bob, jim);
 
         long[] ids = FlatMap.getIdsOfChildrenOver21(persons);
 
-        assertThat(ids).containsExactly(anna.getId(), james.getId());
+        assertThat(ids).containsExactly(anna.id(), james.id());
     }
 
     @Test
     void testGetIdsOfChildrenOver21WithEmptyInput() {
-        long[] ids = FlatMap.getIdsOfChildrenOver21(Collections.emptyList());
+        long[] ids = FlatMap.getIdsOfChildrenOver21(emptyList());
 
         assertThat(ids).isEmpty();
     }

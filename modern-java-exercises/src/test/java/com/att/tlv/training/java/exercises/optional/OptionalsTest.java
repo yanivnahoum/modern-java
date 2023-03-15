@@ -1,7 +1,6 @@
 package com.att.tlv.training.java.exercises.optional;
 
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -36,11 +35,11 @@ class OptionalsTest {
         Person alice = new Person(1000, "Alice", 18);
         Person bob = new Person(2000, "Bob", 11);
         Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         OptionalInt length = Optionals.findLengthOfLongestName(persons);
 
-        assertThat(length).hasValue(alice.getName().length());
+        assertThat(length).hasValue(alice.name().length());
     }
 
     @Test
@@ -54,11 +53,11 @@ class OptionalsTest {
         Person alice = new Person(1000, "Alice", 18);
         Person bob = new Person(2000, "Bob", 11);
         Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         OptionalDouble averageId = Optionals.findAverageId(persons);
 
-        double expectedAverageId = (alice.getId() + bob.getId() + jim.getId()) / 3d;
+        double expectedAverageId = (alice.id() + bob.id() + jim.id()) / 3d;
         assertThat(averageId).hasValue(expectedAverageId);
     }
 
@@ -75,7 +74,7 @@ class OptionalsTest {
         Person jim = new Person(3000, "Jim", 21);
         Person john = new Person(4000, "John", 100);
         Person jeff = new Person(4000, "Jeff", 101);
-        List<Person> persons = ImmutableList.of(alice, bob, jim, john, jeff);
+        List<Person> persons = List.of(alice, bob, jim, john, jeff);
 
         Optional<Person> firstCentenarian = Optionals.findFirstCentenarian(persons);
 
@@ -87,7 +86,7 @@ class OptionalsTest {
         Person alice = new Person(1000, "Alice", 18);
         Person bob = new Person(2000, "Bob", 11);
         Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         Optional<Person> firstCentenarian = Optionals.findFirstCentenarian(persons);
 

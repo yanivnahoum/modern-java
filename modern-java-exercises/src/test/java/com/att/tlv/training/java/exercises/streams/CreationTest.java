@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class CreationTest {
@@ -34,7 +33,7 @@ class CreationTest {
     void testGetInfiniteHelloStream() {
         int size = 1000;
         List<String> hellos = Creation.getInfiniteHelloStream().limit(size)
-                .collect(toList());
+                .toList();
 
         assertThat(hellos).hasSize(size);
         assertThat(hellos).allMatch(s -> "Hello".equals(s));
@@ -43,7 +42,7 @@ class CreationTest {
     @Test
     void testGetInfiniteHelloStreamTakeNone() {
         List<String> hellos = Creation.getInfiniteHelloStream().limit(0)
-                .collect(toList());
+                .toList();
 
         assertThat(hellos).isEmpty();
     }

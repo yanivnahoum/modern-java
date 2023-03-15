@@ -1,7 +1,6 @@
 package com.att.tlv.training.java.exercises.streams;
 
 import com.att.tlv.training.java.exercises.data.Person;
-import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -30,11 +29,11 @@ class FilterMapReduceTest {
         Person alice = new Person(1000, "Alice", 1);
         Person bob = new Person(2000, "Bob", 2);
         Person jim = new Person(3000, "Jim", 3);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         int product = FilterMapReduce.getProductOfAgesWhereIdIsGreaterThan1005(persons);
 
-        assertThat(product).isEqualTo(bob.getAge() * jim.getAge());
+        assertThat(product).isEqualTo(bob.age() * jim.age());
     }
 
     @Test
@@ -42,7 +41,7 @@ class FilterMapReduceTest {
         Person alice = new Person(1000, "Alice", 1);
         Person bob = new Person(200, "Bob", 2);
         Person jim = new Person(300, "Jim", 3);
-        List<Person> persons = ImmutableList.of(alice, bob, jim);
+        List<Person> persons = List.of(alice, bob, jim);
 
         int product = FilterMapReduce.getProductOfAgesWhereIdIsGreaterThan1005(persons);
 
@@ -55,11 +54,11 @@ class FilterMapReduceTest {
         Person bob = new Person(2000, "Bob", 2);
         Person jim = new Person(100, "Jim", 3);
         Person dan = new Person(300, "Dan", 4);
-        List<Person> persons = ImmutableList.of(alice, bob, jim, dan);
+        List<Person> persons = List.of(alice, bob, jim, dan);
 
         long minId = FilterMapReduce.getMinIdWhereNameHasAnAOrMinus1(persons);
 
-        assertThat(minId).isEqualTo(dan.getId());
+        assertThat(minId).isEqualTo(dan.id());
     }
 
     @Test
@@ -68,7 +67,7 @@ class FilterMapReduceTest {
         Person bob = new Person(2000, "Bob", 2);
         Person jim = new Person(100, "Jim", 3);
         Person don = new Person(300, "Don", 4);
-        List<Person> persons = ImmutableList.of(henry, bob, jim, don);
+        List<Person> persons = List.of(henry, bob, jim, don);
 
         long minId = FilterMapReduce.getMinIdWhereNameHasAnAOrMinus1(persons);
 
