@@ -10,6 +10,18 @@ public record Player(long id,
                      String teamName,
                      List<String> nicknames) {
 
+    public Player {
+        nicknames = List.copyOf(nicknames);
+    }
+
+    public Player(long id, String firstName, String lastName, int age, double salary, String teamName) {
+        this(id, firstName, lastName, age, salary, teamName, List.of());
+    }
+
+    public Player(long id, String firstName, String lastName, int age, double salary, String teamName, String... nicknames) {
+        this(id, firstName, lastName, age, salary, teamName, List.of(nicknames));
+    }
+
     @Override
     public String firstName() {
 //        System.out.println("getting firstName for: " + firstName);

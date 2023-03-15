@@ -25,13 +25,13 @@ class FlatMapTest {
         final String ANDY = "Andy";
         Person andy = new Person(1002, ANDY, 3);
         Person anna = new Person(1001, "Anna", 5);
-        Person alice = new Person(1000, "Alice", 35, List.of(anna, andy));
+        Person alice = new Person(1000, "Alice", 35, anna, andy);
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, List.of(bill));
+        Person bob = new Person(2000, "Bob", 41, bill);
 
         Person andy2 = new Person(3001, ANDY, 10);
-        Person jim = new Person(3000, "Jim", 39, List.of(andy2));
+        Person jim = new Person(3000, "Jim", 39, andy2);
         List<Person> persons = List.of(alice, bob, jim);
 
         Set<String> names = FlatMap.getUniqueChildrenNames(persons);
