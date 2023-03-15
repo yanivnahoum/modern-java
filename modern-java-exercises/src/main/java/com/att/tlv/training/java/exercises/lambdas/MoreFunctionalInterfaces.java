@@ -1,6 +1,5 @@
 package com.att.tlv.training.java.exercises.lambdas;
 
-import com.att.tlv.training.java.exercises.Exercises;
 import com.att.tlv.training.java.exercises.data.Person;
 
 import java.util.function.BiConsumer;
@@ -14,56 +13,58 @@ import java.util.function.ObjIntConsumer;
 import java.util.function.Predicate;
 import java.util.function.ToIntBiFunction;
 
+import static com.att.tlv.training.java.exercises.Exercises.replaceThisWithSolution;
+
 public class MoreFunctionalInterfaces {
 
     // Function
 
     public LongUnaryOperator increment() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     // BiConsumer
 
-    public BiConsumer<String, String> writeConcatenationToStdOut() {
-        return Exercises.replaceThisWithSolution();
+    public BiConsumer<String, String> writeConcatenationToStdout() {
+        return replaceThisWithSolution();
     }
 
     public ObjIntConsumer<Person> writePersonAgeInXYearsToStdout() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     // BiFunction
 
     public BiFunction<String, Integer, String> substringStartingAtIndex() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public ToIntBiFunction<String, String> indexOfString2InString1() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     public IntBinaryOperator add() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     /**
      * @return a new runnable that runs the specified runnables one after the other.
      */
     public BinaryOperator<Runnable> compose() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     // Predicate
 
-    public Predicate<Person> getIsNameExactlyDan() {
-        return Exercises.replaceThisWithSolution();
+    public Predicate<Person> isNameExactlyDan() {
+        return replaceThisWithSolution();
     }
 
     public IntPredicate isEven() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
-    public BiPredicate<Person, String> getIsPersonAgeOver40AndIsStringNotNull() {
-        return Exercises.replaceThisWithSolution();
+    public BiPredicate<Person, String> isPersonAgeOver40AndIsStringNotNull() {
+        return replaceThisWithSolution();
     }
 }

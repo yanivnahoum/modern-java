@@ -28,8 +28,8 @@ public class FunctionalInterfacesAnswer {
         return System.out::println;
     }
 
-    public DoubleConsumer writeCosineToStdOut() {
-        return d ->  System.out.println(Math.cos(d));
+    public DoubleConsumer writeCosineToStdout() {
+        return d -> System.out.println(Math.cos(d));
     }
     
     // Supplier

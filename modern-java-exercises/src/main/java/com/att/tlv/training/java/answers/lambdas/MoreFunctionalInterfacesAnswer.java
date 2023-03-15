@@ -57,15 +57,15 @@ public class MoreFunctionalInterfacesAnswer {
     
     // Predicate
     
-    public Predicate<Person> getIsNameExactlyDan() {
+    public Predicate<Person> isNameExactlyDan() {
         return p -> "Dan".equals(p.name());
     }
     
     public IntPredicate isEven() {
         return i -> i % 2 == 0;
     }
-    
-    public BiPredicate<Person, String> getIsPersonAgeOver40AndIsStringNotNull() {
+
+    public BiPredicate<Person, String> isPersonAgeOver40AndIsStringNotNull() {
         return (p, s) -> p.age() > 40 && s != null;
     }
 }

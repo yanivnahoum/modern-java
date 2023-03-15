@@ -27,7 +27,7 @@ public class FunctionalInterfaces {
         return replaceThisWithSolution();
     }
 
-    public DoubleConsumer writeCosineToStdOut() {
+    public DoubleConsumer writeCosineToStdout() {
         return replaceThisWithSolution();
     }
 
