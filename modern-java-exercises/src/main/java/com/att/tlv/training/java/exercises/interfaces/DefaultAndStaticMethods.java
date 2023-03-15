@@ -1,8 +1,8 @@
 package com.att.tlv.training.java.exercises.interfaces;
 
-import com.att.tlv.training.java.exercises.Exercises;
-
 import java.util.function.Predicate;
+
+import static com.att.tlv.training.java.exercises.Exercises.replaceThisWithSolution;
 
 /**
  * TODO implement methods {@code removeIf}, {@code joinAll}, and {@code merge}
@@ -38,14 +38,14 @@ interface StringCollection extends Iterable<String> {
      * @param filter a predicate which returns {@code true} for elements to be removed.
      */
     default void removeIf(Predicate<? super String> filter) {
-        Exercises.replaceThisWithSolution();
+        replaceThisWithSolution();
     }
 
     /**
      * Joins all this collection's elements, returning a single concatenated {@code String}.
      */
     default String joinAll() {
-        return Exercises.replaceThisWithSolution();
+        return replaceThisWithSolution();
     }
 
     /**
@@ -55,7 +55,7 @@ interface StringCollection extends Iterable<String> {
      * @param c2
      */
     static void merge(StringCollection c1, StringCollection c2) {
-        Exercises.replaceThisWithSolution();
+        replaceThisWithSolution();
     }
 }
 
