@@ -1,6 +1,5 @@
 package com.att.tlv.training.java.streams;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.file.FileVisitor;
 import java.nio.file.Files;
@@ -20,6 +19,14 @@ public class Streams {
     // like filter, map, reduce, find, match, sorted, and so on.
     // So like an iterator, we get a sequence of elements. Unlike iterators, they are evaluated
     // lazily and support parallel execution.
+    // Unlike collections, streams have no storage - they conveys elements from a source such as a
+    // data structure, an array, a generator function, or an I/O channel, through a pipeline of
+    // computational operations.
+    // Streams are functional in nature. An operation on a stream produces a result,
+    // but does not modify its source.
+    // Streams are possibly unbounded. While collections have a finite size, streams need not.
+    // Streams are consumable. The elements of a stream are only visited once during the life
+    // of a stream - like an Iterator.
     // Stream operations support pipelining and internal iteration (more on this later on).
 
     public void collection() {
@@ -28,7 +35,7 @@ public class Streams {
     }
 
     public void files(String filename) throws IOException {
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get(filename))) {
+        try (var reader = Files.newBufferedReader(Paths.get(filename))) {
             reader.lines()
                     .forEach(System.out::println);
         }
@@ -38,7 +45,7 @@ public class Streams {
             lines.forEach(System.out::println);
         }
     }
-    
+
     public void directoriesEntries(String root, FileVisitor<Path> visitor) throws IOException {
         try (Stream<Path> entries = Files.list(Paths.get(root))) {
             entries.forEach(System.out::println);
@@ -51,60 +58,60 @@ public class Streams {
             directories.forEach(System.out::println);
         }
     }
-    
+
     public void infiniteGenerate() {
         // An infinite stream of empty strings
         Stream<String> strings = Stream.generate(String::new);
-        
+
         // An infinite stream of random numbers
         DoubleStream randomDoubles = DoubleStream.generate(() -> Math.random());
-        
+
         // ... or better yet:
-       randomDoubles = new Random().doubles();
+        randomDoubles = new Random().doubles();
     }
-    
+
     public void infiniteIterate() {
         // seed, f(seed), f(f(seed))....
         IntStream numbers = IntStream.iterate(0, n -> n + 2);
     }
-    
+
     public void limit() {
         LongStream.iterate(1, n -> n + 1)
                 .limit(10)
                 .forEach(System.out::println);
     }
-    
+
     public void skip() {
         LongStream.iterate(1, n -> n + 1)
                 .skip(2)
                 .limit(10)
                 .forEach(System.out::println);
-        
+
         // limit, skip vs skip, limit
         // foreach - Is the order guaranteed?
         // limit & skip - at what price?
     }
-    
+
     public void ranges() {
         // 1 to 9
         IntStream.range(1, 10)
-            .forEach(System.out::println);
-        
+                .forEach(System.out::println);
+
         // 1 to 10
         IntStream.rangeClosed(1, 10)
-        .forEach(System.out::println);
+                .forEach(System.out::println);
     }
-    
+
     public void anything() {
         // You can call this:
         Stream<String> stream = Stream.of("Hello", "World");
-        
+
         // Which is actually calling this:
-        String[] array = new String[] { "Hello", "World"};
+        String[] array = { "Hello", "World" };
         stream = Arrays.stream(array);
-        
+
     }
-    
+
     public static void main(String[] args) {
         new Streams().skip();
     }

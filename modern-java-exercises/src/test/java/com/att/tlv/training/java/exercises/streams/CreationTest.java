@@ -32,7 +32,8 @@ class CreationTest {
     @Test
     void testGetInfiniteHelloStream() {
         int size = 1000;
-        List<String> hellos = Creation.getInfiniteHelloStream().limit(size)
+        List<String> hellos = Creation.getInfiniteHelloStream()
+                .limit(size)
                 .toList();
 
         assertThat(hellos).hasSize(size);
@@ -41,7 +42,8 @@ class CreationTest {
 
     @Test
     void testGetInfiniteHelloStreamTakeNone() {
-        List<String> hellos = Creation.getInfiniteHelloStream().limit(0)
+        List<String> hellos = Creation.getInfiniteHelloStream()
+                .limit(0)
                 .toList();
 
         assertThat(hellos).isEmpty();
