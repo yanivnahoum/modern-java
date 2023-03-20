@@ -33,13 +33,20 @@ public class BasicCollectors {
 
         System.out.println(filteredNames.getClass().getSimpleName() + ": " + filteredNames);
 
+        // Java 16 immutable list collector:
+        filteredNames = names.stream()
+                .filter(BasicCollectors::hasFiveLetters)
+                .toList();
+
+        System.out.println(filteredNames.getClass().getSimpleName() + ": " + filteredNames);
+
         // How about if we need a special kind of list?
         filteredNames = names.stream()
                 .filter(BasicCollectors::hasFiveLetters)
                 .collect(toCollection(LinkedList::new));
 
         System.out.println(filteredNames.getClass().getSimpleName() + ": " + filteredNames);
-        
+
         // Don't do this!
         List<String> list = new ArrayList<>();
         filteredNames.stream()

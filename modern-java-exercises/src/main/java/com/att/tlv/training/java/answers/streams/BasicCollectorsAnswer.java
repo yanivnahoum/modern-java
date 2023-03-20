@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.toCollection;
-import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toMap;
 
 public class BasicCollectorsAnswer {
@@ -21,7 +20,7 @@ public class BasicCollectorsAnswer {
     public static List<String> getNames(List<Person> persons) {
         return persons.stream()
                 .map(Person::name)
-                .collect(toList());
+                .toList();
     }
 
     /**
