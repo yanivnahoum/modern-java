@@ -32,13 +32,13 @@ public class MoreFunctionalInterfaces {
         echo = Function.identity();
         
         // Otherwise know as:
-        UnaryOperator<String> op = s -> s;
+        UnaryOperator<String> op = s -> s + s;
         op = UnaryOperator.identity();
         // + specialized type IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator
         
         
         // Same TWO input args & return values:
-        BiFunction<String, String, String> concat = (s1, s2) -> s1 + s2;
+        BiFunction<String, String, String> concat = (s1, s2) -> s1.concat(s2);
         concat = String::concat;
         
         BinaryOperator<String> biOp = String::concat;

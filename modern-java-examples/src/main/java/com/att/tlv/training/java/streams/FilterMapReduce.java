@@ -1,13 +1,15 @@
 package com.att.tlv.training.java.streams;
 
+import com.att.tlv.training.java.data.Players;
+
 import java.util.List;
 
 public class FilterMapReduce {
-    
+
     public void sumOfDoubles() {
         // Find the sum of double the values in the list
         var numbers = List.of(1, 2, 3, 4, 5, 6);
-        
+
         // Let's do it the imperative way:
         int sum = 0;
         for (int e : numbers) {
@@ -41,19 +43,18 @@ public class FilterMapReduce {
         final int DEFAULT = -1;
         final double MIN_SALARY = 80_000d;
 
-
         int oldestAge = DEFAULT;
-//        for (Player e : Players.getAll()) {
-//            if (e.salary() > MIN_SALARY) {
-//                oldestAge = Math.max(oldestAge, e.age());
-//            }
-//        }
+        for (var player : Players.getAll()) {
+            if (player.salary() > MIN_SALARY) {
+                oldestAge = Math.max(oldestAge, player.age());
+            }
+        }
 
 
 //        oldestAge = Players.getAll()
 //                .stream()
-//                .filter(e -> e.salary() > MIN_SALARY)
-//                .map(e -> e.age())
+//                .filter(player -> player.salary() > MIN_SALARY)
+//                .map(player -> player.age())
 //                .reduce(DEFAULT, Math::max);
 
 //        long start = System.nanoTime();
@@ -61,9 +62,10 @@ public class FilterMapReduce {
         // Better yet:
 
 //        oldestAge = Players.getAll()
-//                .stream()
+//                .parallelStream()
 //                .filter(e -> e.salary() > MIN_SALARY)
 //                .mapToInt(Player::age)
+//                .peek(System.out::println)
 //                .max()
 //                .orElse(DEFAULT);
 
@@ -73,7 +75,7 @@ public class FilterMapReduce {
 //      debugging:
 //        .peek(System.out::println)        
 
-//        long total = System.nanoTime() - start;     
+//        long total = System.nanoTime() - start;
 //        System.out.println("Time: " + NANOSECONDS.toMillis(total));
         System.out.println(oldestAge);
     }
