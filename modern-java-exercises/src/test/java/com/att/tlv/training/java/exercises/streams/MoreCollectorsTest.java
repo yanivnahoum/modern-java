@@ -17,10 +17,10 @@ class MoreCollectorsTest {
 
     @Test
     void testGetNamesAsString() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         String names = getNamesAsString(persons);
 
@@ -36,10 +36,10 @@ class MoreCollectorsTest {
 
     @Test
     void testGetSumofIds() {
-        Person alice = new Person(200, "Alice", 18);
-        Person bob = new Person(300, "Bob", 11);
-        Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(200, "Alice", 18);
+        var bob = new Person(300, "Bob", 11);
+        var jim = new Person(100, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         long sumOfIds = getSumofIds(persons);
 
@@ -55,10 +55,10 @@ class MoreCollectorsTest {
 
     @Test
     void testGetNumOfPersonsOlderThanX() {
-        Person alice = new Person(200, "Alice", 18);
-        Person bob = new Person(300, "Bob", 11);
-        Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(200, "Alice", 18);
+        var bob = new Person(300, "Bob", 11);
+        var jim = new Person(100, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         long count = getNumOfPersonsOlderThanX(persons, 10);
 
@@ -67,10 +67,10 @@ class MoreCollectorsTest {
 
     @Test
     void testGetNumOfPersonsOlderThanXNoMatch() {
-        Person alice = new Person(200, "Alice", 18);
-        Person bob = new Person(300, "Bob", 11);
-        Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(200, "Alice", 18);
+        var bob = new Person(300, "Bob", 11);
+        var jim = new Person(100, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         long count = getNumOfPersonsOlderThanX(persons, 18);
 
@@ -92,10 +92,10 @@ class MoreCollectorsTest {
      */
     @Test
     void testGetLongestNameOrEmptyString() {
-        Person alice = new Person(200, "Alice", 18);
-        Person bob = new Person(300, "Bob", 11);
-        Person jim = new Person(100, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(200, "Alice", 18);
+        var bob = new Person(300, "Bob", 11);
+        var jim = new Person(100, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         String longestName = getLongestNameOrEmptyString(persons);
 
@@ -104,10 +104,10 @@ class MoreCollectorsTest {
 
     @Test
     void testGetLongestNameOrEmptyStringTwoWithMaxLength() {
-        Person alice = new Person(200, "Alice", 18);
-        Person bob = new Person(300, "Bob", 11);
-        Person jim = new Person(100, "Jimmy", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(200, "Alice", 18);
+        var bob = new Person(300, "Bob", 11);
+        var jim = new Person(100, "Jimmy", 10);
+        var persons = List.of(alice, bob, jim);
 
         String longestName = getLongestNameOrEmptyString(persons);
 
@@ -116,8 +116,8 @@ class MoreCollectorsTest {
 
     @Test
     void testGetLongestNameOrEmptyStringWithSingleEntry() {
-        Person alice = new Person(200, "Alice", 18);
-        List<Person> persons = List.of(alice);
+        var alice = new Person(200, "Alice", 18);
+        var persons = List.of(alice);
 
         String longestName = getLongestNameOrEmptyString(persons);
 
@@ -133,10 +133,10 @@ class MoreCollectorsTest {
 
     @Test
     void testGetSumOfEvenAges() {
-        Person alice = new Person(20, "Alice", 18);
-        Person bob = new Person(31, "Bob", 11);
-        Person jim = new Person(40, "Jimmy", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(20, "Alice", 18);
+        var bob = new Person(31, "Bob", 11);
+        var jim = new Person(40, "Jimmy", 10);
+        var persons = List.of(alice, bob, jim);
 
         int sumOfEvenAges = getSumOfEvenAges(persons);
 
@@ -145,8 +145,8 @@ class MoreCollectorsTest {
 
     @Test
     void testGetSumOfEvenAgesWithSingleEntry() {
-        Person alice = new Person(20, "Alice", 18);
-        List<Person> persons = List.of(alice);
+        var alice = new Person(20, "Alice", 18);
+        var persons = List.of(alice);
 
         int sumOfEvenAges = getSumOfEvenAges(persons);
 

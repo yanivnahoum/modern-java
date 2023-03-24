@@ -16,10 +16,10 @@ class BasicCollectorsTest {
 
     @Test
     void testGetNames() {
-        Person alice = new Person(1000, "Alice", 1);
-        Person bob = new Person(2000, "Bob", 2);
-        Person jim = new Person(3000, "Jim", 3);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 1);
+        var bob = new Person(2000, "Bob", 2);
+        var jim = new Person(3000, "Jim", 3);
+        var persons = List.of(alice, bob, jim);
 
         List<String> names = BasicCollectors.getNames(persons);
 
@@ -35,10 +35,10 @@ class BasicCollectorsTest {
 
     @Test
     void testGetMinorsOnly() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         LinkedList<Person> minors = BasicCollectors.getMinorsOnly(persons);
 
@@ -54,10 +54,10 @@ class BasicCollectorsTest {
 
     @Test
     void testMapIdToPerson() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         Map<Long, Person> idToPerson = BasicCollectors.mapIdToPerson(persons);
 
@@ -73,9 +73,9 @@ class BasicCollectorsTest {
 
     @Test
     void testMapIdToPersonWithDuplicate() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(1000, "Bob", 11);
-        List<Person> persons = List.of(alice, bob);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(1000, "Bob", 11);
+        var persons = List.of(alice, bob);
 
         // Boom
         assertThatIllegalStateException().isThrownBy(() -> BasicCollectors.mapIdToPerson(persons));
@@ -84,10 +84,10 @@ class BasicCollectorsTest {
     @Test
     void testMapAgeToNames() {
         int duplicateAge = 18;
-        Person alice = new Person(1000, "Alice", duplicateAge);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", duplicateAge);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", duplicateAge);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", duplicateAge);
+        var persons = List.of(alice, bob, jim);
 
         Map<Integer, String> ageToNames = BasicCollectors.mapAgeToNames(persons);
 
@@ -104,10 +104,10 @@ class BasicCollectorsTest {
     @Test
     void testMapNameToCount() {
         final String ALICE = "Alice";
-        Person alice = new Person(1000, ALICE, 18);
-        Person bob = new Person(2000, "Bob", 11);
+        var alice = new Person(1000, ALICE, 18);
+        var bob = new Person(2000, "Bob", 11);
         Person alice2 = new Person(3000, ALICE, 10);
-        List<Person> persons = List.of(alice, bob, alice2);
+        var persons = List.of(alice, bob, alice2);
 
         Map<String, Long> nameToCount = BasicCollectors.mapNameToCount(persons);
 

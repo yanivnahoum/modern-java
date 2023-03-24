@@ -11,8 +11,8 @@ import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.partitioningBy;
 import static java.util.stream.Collectors.summingInt;
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
+import static java.util.stream.Collectors.toUnmodifiableList;
+import static java.util.stream.Collectors.toUnmodifiableSet;
 
 public class GroupingCollectorsAnswer {
 
@@ -33,7 +33,7 @@ public class GroupingCollectorsAnswer {
      */     
     public static Map<String, List<Long>> groupByNameToIds(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::name, mapping(Person::id, toList())));
+                .collect(groupingBy(Person::name, mapping(Person::id, toUnmodifiableList())));
     }
 
     /**
@@ -44,7 +44,7 @@ public class GroupingCollectorsAnswer {
      */    
     public static Map<String, Set<Integer>> groupByNameToDistinctAges(List<Person> persons) {
         return persons.stream()
-                .collect(groupingBy(Person::name, mapping(Person::age, toSet())));
+                .collect(groupingBy(Person::name, mapping(Person::age, toUnmodifiableSet())));
     }
     
     

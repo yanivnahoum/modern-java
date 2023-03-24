@@ -39,18 +39,29 @@ public class MoreCollectors {
         long count = names.stream()
                 .filter(s -> s.length() == 5)
                 .collect(reducing(0L, s -> 1L, Long::sum));
-        
+
         System.out.println(count);
-        
-        
+
+
         // Or for this specific reduction, we can do this:
         count = names.stream()
                 .filter(s -> s.length() == 5)
                 .collect(counting());
+
+        // Or better yet:
+        count = names.stream()
+                .filter(s -> s.length() == 5)
+                .mapToLong(name -> 1L)
+                .sum();
+
+        // Which is better expressed as:
+        count = names.stream()
+                .filter(s -> s.length() == 5)
+                .count();
     }
     
     public void reduceSum() {
-        // Total number of letters
+        // Total number of letters of names with 5 letters or more
         int sum = names.stream()
                 .filter(s -> s.length() >= 5)
                 .map(String::length)

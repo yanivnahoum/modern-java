@@ -13,9 +13,9 @@ class SortingTest {
 
     @Test
     void testSortNames() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         List<Person> persons = newArrayList(alice, bob, jim);
         Collections.reverse(persons);
 
@@ -26,9 +26,9 @@ class SortingTest {
 
     @Test
     void testSortByAge() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         List<Person> persons = newArrayList(alice, bob, jim);
 
         List<Person> sortedPersons = Sorting.sortByAge(persons);
@@ -38,9 +38,9 @@ class SortingTest {
 
     @Test
     void testSortByIdDescending() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         List<Person> persons = newArrayList(alice, bob, jim);
 
         List<Person> sortedPersons = Sorting.sortByIdDescending(persons);
@@ -50,10 +50,10 @@ class SortingTest {
 
     @Test
     void testSortByNameAndThenId() {
-        Person alice = new Person(1000, "Alice", 18);
+        var alice = new Person(1000, "Alice", 18);
         Person alice2 = new Person(1001, "Alice", 36);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         Person jim2 = new Person(3001, "Jim", 20);
         List<Person> persons = newArrayList(alice, alice2, bob, jim, jim2);
         Collections.reverse(persons);
@@ -65,9 +65,9 @@ class SortingTest {
 
     @Test
     void testSortByAgeDescendingAndThenId() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         Person carl = new Person(1001, "Carl", 18);
         Person george = new Person(2001, "George", 11);
 
@@ -80,10 +80,10 @@ class SortingTest {
 
     @Test
     void testSortByNameAndThenIdDescending() {
-        Person alice = new Person(1000, "Alice", 18);
+        var alice = new Person(1000, "Alice", 18);
         Person alice2 = new Person(1001, "Alice", 36);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         Person jim2 = new Person(3001, "Jim", 20);
         List<Person> persons = newArrayList(alice, alice2, bob, jim, jim2);
         Collections.reverse(persons);
@@ -95,10 +95,10 @@ class SortingTest {
 
     @Test
     void testSortByNameWithCaseInsensitiveOrder() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "bob", 11);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "bob", 11);
         Person carl = new Person(3000, "Carl", 11);
-        Person jim = new Person(4000, "jim", 10);
+        var jim = new Person(4000, "jim", 10);
         List<Person> persons = newArrayList(alice, bob, carl, jim);
         Collections.reverse(persons);
 

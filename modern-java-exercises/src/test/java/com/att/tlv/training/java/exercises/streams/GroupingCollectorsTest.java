@@ -15,11 +15,11 @@ class GroupingCollectorsTest {
 
     @Test
     void testGroupById() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         Person carl = new Person(3000, "Carl", 11);
-        List<Person> persons = List.of(alice, bob, jim, carl);
+        var persons = List.of(alice, bob, jim, carl);
 
         Map<Long, List<Person>> idToPersons = GroupingCollectors.groupById(persons);
 
@@ -35,11 +35,11 @@ class GroupingCollectorsTest {
 
     @Test
     void testGroupByNameToIds() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         Person carl = new Person(4000, "Jim", 11);
-        List<Person> persons = List.of(alice, bob, jim, carl);
+        var persons = List.of(alice, bob, jim, carl);
 
         Map<String, List<Long>> nameToIds = GroupingCollectors.groupByNameToIds(persons);
 
@@ -55,12 +55,12 @@ class GroupingCollectorsTest {
 
     @Test
     void testGroupByNameToDistinctAges() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
         Person alice2 = new Person(3000, "Alice", 10);
         Person bob2 = new Person(4000, "Bob", 11);
-        Person jim = new Person(5000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, alice2, bob2, jim);
+        var jim = new Person(5000, "Jim", 10);
+        var persons = List.of(alice, bob, alice2, bob2, jim);
 
         Map<String, Set<Integer>> nameToAges = GroupingCollectors.groupByNameToDistinctAges(persons);
 
@@ -76,10 +76,10 @@ class GroupingCollectorsTest {
 
     @Test
     void testGroupByNameToSumOfAges() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
         Person alice2 = new Person(3000, "Alice", 10);
-        List<Person> persons = List.of(alice, bob, alice2);
+        var persons = List.of(alice, bob, alice2);
 
         Map<String, Integer> nameToSum = GroupingCollectors.groupByNameToSumOfAges(persons);
 
@@ -95,11 +95,11 @@ class GroupingCollectorsTest {
 
     @Test
     void testGroupByAgeToNameToTotal() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
         Person carl = new Person(3000, "Carl", 11);
         Person bob2 = new Person(4000, "Bob", 11);
-        List<Person> persons = List.of(alice, bob, carl, bob2);
+        var persons = List.of(alice, bob, carl, bob2);
 
         Map<Integer, Map<String, Long>> ageToNameToTotal = GroupingCollectors.groupByAgeToNameToCount(persons);
 
@@ -117,11 +117,11 @@ class GroupingCollectorsTest {
 
     @Test
     void testPartitionByIsAllowedToVote() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 21);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 21);
+        var jim = new Person(3000, "Jim", 10);
         Person carl = new Person(4000, "Carl", 11);
-        List<Person> persons = List.of(alice, bob, jim, carl);
+        var persons = List.of(alice, bob, jim, carl);
 
         Map<Boolean, List<Person>> voters = GroupingCollectors.partitionByIsAllowedToVote(persons);
 

@@ -14,9 +14,9 @@ class FlatMapTest {
     private static final List<Person> PERSONS_WITH_NO_CHILDREN;
 
     static {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
         PERSONS_WITH_NO_CHILDREN = List.of(alice, bob, jim);
     }
 
@@ -25,14 +25,14 @@ class FlatMapTest {
         final String ANDY = "Andy";
         Person andy = new Person(1002, ANDY, 3);
         Person anna = new Person(1001, "Anna", 5);
-        Person alice = new Person(1000, "Alice", 35, anna, andy);
+        var alice = new Person(1000, "Alice", 35, anna, andy);
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, bill);
+        var bob = new Person(2000, "Bob", 41, bill);
 
         Person andy2 = new Person(3001, ANDY, 10);
-        Person jim = new Person(3000, "Jim", 39, andy2);
-        List<Person> persons = List.of(alice, bob, jim);
+        var jim = new Person(3000, "Jim", 39, andy2);
+        var persons = List.of(alice, bob, jim);
 
         Set<String> names = FlatMap.getUniqueChildrenNames(persons);
 
@@ -58,16 +58,16 @@ class FlatMapTest {
         Person alvin = new Person(1003, "Alvin", 10);
         Person andy = new Person(1002, "Andy", 41, List.of(alvin));
         Person anna = new Person(1001, "Anna", 45);
-        Person alice = new Person(1000, "Alice", 60, List.of(anna, andy));
+        var alice = new Person(1000, "Alice", 60, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, List.of(bill));
+        var bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person gerard = new Person(3001, "Gerard", 1);
         Person jonah = new Person(3001, "Jonah", 1);
         Person james = new Person(3001, "James", 22, List.of(jonah, gerard));
-        Person jim = new Person(3000, "Jim", 49, List.of(james));
-        List<Person> persons = List.of(alice, bob, jim);
+        var jim = new Person(3000, "Jim", 49, List.of(james));
+        var persons = List.of(alice, bob, jim);
 
         int sum = FlatMap.getSumOfGrandChildrenAges(persons);
 
@@ -92,14 +92,14 @@ class FlatMapTest {
     void testGetSumOfGrandChildrenAgesWithNoGrandChildren() {
         Person andy = new Person(1002, "Andy", 21);
         Person anna = new Person(1001, "Anna", 25);
-        Person alice = new Person(1000, "Alice", 55, List.of(anna, andy));
+        var alice = new Person(1000, "Alice", 55, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, List.of(bill));
+        var bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person james = new Person(3001, "James", 22);
-        Person jim = new Person(3000, "Jim", 49, List.of(james));
-        List<Person> persons = List.of(alice, bob, jim);
+        var jim = new Person(3000, "Jim", 49, List.of(james));
+        var persons = List.of(alice, bob, jim);
 
         int sum = FlatMap.getSumOfGrandChildrenAges(persons);
 
@@ -110,14 +110,14 @@ class FlatMapTest {
     void testGetIdsOfChildrenOver21() {
         Person andy = new Person(1002, "Andy", 21);
         Person anna = new Person(1001, "Anna", 25);
-        Person alice = new Person(1000, "Alice", 55, List.of(anna, andy));
+        var alice = new Person(1000, "Alice", 55, List.of(anna, andy));
 
         Person bill = new Person(2001, "Bill", 11);
-        Person bob = new Person(2000, "Bob", 41, List.of(bill));
+        var bob = new Person(2000, "Bob", 41, List.of(bill));
 
         Person james = new Person(3001, "James", 22);
-        Person jim = new Person(3000, "Jim", 49, List.of(james));
-        List<Person> persons = List.of(alice, bob, jim);
+        var jim = new Person(3000, "Jim", 49, List.of(james));
+        var persons = List.of(alice, bob, jim);
 
         long[] ids = FlatMap.getIdsOfChildrenOver21(persons);
 

@@ -4,7 +4,6 @@ import com.att.tlv.training.java.exercises.data.Person;
 
 import java.util.List;
 
-import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.reducing;
 import static java.util.stream.Collectors.summingLong;
@@ -48,7 +47,7 @@ public class MoreCollectorsAnswer {
     public static long getNumOfPersonsOlderThanX(List<Person> persons, int x) {
         return persons.stream()
                 .filter(p -> p.age() > x)
-                .collect(counting());
+                .count();
     }
 
     /**

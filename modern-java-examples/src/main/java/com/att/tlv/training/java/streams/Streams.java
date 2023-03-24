@@ -75,6 +75,11 @@ public class Streams {
         IntStream numbers = IntStream.iterate(0, n -> n + 2);
     }
 
+    public void finiteIterate() {
+        // for (int index=seed; hasNext.test(index); index = next.applyAsInt(index)) {...}
+        IntStream numbers = IntStream.iterate(0, n -> n < 11, n -> n + 2);
+    }
+
     public void limit() {
         LongStream.iterate(1, n -> n + 1)
                 .limit(10)

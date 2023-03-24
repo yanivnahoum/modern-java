@@ -84,16 +84,19 @@ public class BasicCollectors {
         // id -> player
         Map<Long, Player> map = players.stream()
                 .collect(toMap(Player::id, Function.identity()));
-        
+
         System.out.println(map.getClass().getSimpleName() + ": " + map);
-        
+
         // How about this: length(firstName) -> lastName     
 //        Map<Integer, String> nameLengths = players.stream()
 //                .collect(toMap(p -> p.firstName().length(), Player::lastName));
 //        
 //        System.out.println(nameLengths);
-        
+
         // Boom!
-        // We can fix this by specifying a mergeFunction - BinaryOperator<U> where U is the type of values in the map
+//        // We can fix this by specifying a mergeFunction - BinaryOperator<U> where U is the type of values in the map
+//        nameLengths = players.stream()
+//                .collect(toUnmodifiableMap(p -> p.firstName().length(), Player::lastName,
+//                        (lastName1, lastName2) -> lastName1 + "|" + lastName2));
     }
 }

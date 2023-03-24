@@ -3,7 +3,10 @@ package com.att.tlv.training.java.exercises.streams;
 import com.att.tlv.training.java.exercises.Exercises;
 import com.att.tlv.training.java.exercises.data.Person;
 
+import java.util.Comparator;
 import java.util.List;
+
+import static java.util.stream.Collectors.maxBy;
 
 /**
  * Use collect() in all exercises.
@@ -12,7 +15,7 @@ public class MoreCollectors {
     /**
      * Example:
      * p1 { name: "Alice" }, p2 { name: "Dan" }, p3 { name: "Bob"} => "[ a d b ]"
-     * 
+     *
      * @return A {@code String} consisting of a space separated list of the first letter
      *         of the name, in lower case, of each person in the specified list of {@code Person}s.
      */
@@ -43,7 +46,10 @@ public class MoreCollectors {
      * {} => ""
      */
     public static String getLongestNameOrEmptyString(List<Person> persons) {
-        return Exercises.replaceThisWithSolution();
+        return persons.stream()
+                .map(Person::name)
+                .collect(maxBy(Comparator.comparingInt(String::length)))
+                .orElse("");
     }
 
     /**
