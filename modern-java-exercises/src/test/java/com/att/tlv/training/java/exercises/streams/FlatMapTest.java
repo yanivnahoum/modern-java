@@ -55,17 +55,17 @@ class FlatMapTest {
 
     @Test
     void testGetSumOfGrandChildrenAges() {
-        Person alvin = new Person(1003, "Alvin", 10);
-        Person andy = new Person(1002, "Andy", 41, List.of(alvin));
-        Person anna = new Person(1001, "Anna", 45);
+        var alvin = new Person(1003, "Alvin", 10);
+        var andy = new Person(1002, "Andy", 41, List.of(alvin));
+        var anna = new Person(1001, "Anna", 45);
         var alice = new Person(1000, "Alice", 60, List.of(anna, andy));
 
-        Person bill = new Person(2001, "Bill", 11);
+        var bill = new Person(2001, "Bill", 11);
         var bob = new Person(2000, "Bob", 41, List.of(bill));
 
-        Person gerard = new Person(3001, "Gerard", 1);
-        Person jonah = new Person(3001, "Jonah", 1);
-        Person james = new Person(3001, "James", 22, List.of(jonah, gerard));
+        var gerard = new Person(3001, "Gerard", 1);
+        var jonah = new Person(3001, "Jonah", 1);
+        var james = new Person(3001, "James", 22, List.of(jonah, gerard));
         var jim = new Person(3000, "Jim", 49, List.of(james));
         var persons = List.of(alice, bob, jim);
 
@@ -90,14 +90,14 @@ class FlatMapTest {
 
     @Test
     void testGetSumOfGrandChildrenAgesWithNoGrandChildren() {
-        Person andy = new Person(1002, "Andy", 21);
-        Person anna = new Person(1001, "Anna", 25);
+        var andy = new Person(1002, "Andy", 21);
+        var anna = new Person(1001, "Anna", 25);
         var alice = new Person(1000, "Alice", 55, List.of(anna, andy));
 
-        Person bill = new Person(2001, "Bill", 11);
+        var bill = new Person(2001, "Bill", 11);
         var bob = new Person(2000, "Bob", 41, List.of(bill));
 
-        Person james = new Person(3001, "James", 22);
+        var james = new Person(3001, "James", 22);
         var jim = new Person(3000, "Jim", 49, List.of(james));
         var persons = List.of(alice, bob, jim);
 
@@ -108,14 +108,14 @@ class FlatMapTest {
 
     @Test
     void testGetIdsOfChildrenOver21() {
-        Person andy = new Person(1002, "Andy", 21);
-        Person anna = new Person(1001, "Anna", 25);
+        var andy = new Person(1002, "Andy", 21);
+        var anna = new Person(1001, "Anna", 25);
         var alice = new Person(1000, "Alice", 55, List.of(anna, andy));
 
-        Person bill = new Person(2001, "Bill", 11);
+        var bill = new Person(2001, "Bill", 11);
         var bob = new Person(2000, "Bob", 41, List.of(bill));
 
-        Person james = new Person(3001, "James", 22);
+        var james = new Person(3001, "James", 22);
         var jim = new Person(3000, "Jim", 49, List.of(james));
         var persons = List.of(alice, bob, jim);
 

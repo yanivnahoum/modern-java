@@ -24,5 +24,5 @@ public class FlatMap {
         System.out.println(nicknames);
     }
     
-    // There's also the apis to avoid boxing: flatMapToInt, flatMapToLong, flatMapToDouble!
+    // There are also APIs to avoid boxing: flatMapToInt, flatMapToLong, flatMapToDouble!
 }
