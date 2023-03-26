@@ -3,10 +3,7 @@ package com.att.tlv.training.java.exercises.streams;
 import com.att.tlv.training.java.exercises.Exercises;
 import com.att.tlv.training.java.exercises.data.Person;
 
-import java.util.Comparator;
 import java.util.List;
-
-import static java.util.stream.Collectors.maxBy;
 
 /**
  * Use collect() in all exercises.
@@ -46,10 +43,7 @@ public class MoreCollectors {
      * {} => ""
      */
     public static String getLongestNameOrEmptyString(List<Person> persons) {
-        return persons.stream()
-                .map(Person::name)
-                .collect(maxBy(Comparator.comparingInt(String::length)))
-                .orElse("");
+        return Exercises.replaceThisWithSolution();
     }
 
     /**
