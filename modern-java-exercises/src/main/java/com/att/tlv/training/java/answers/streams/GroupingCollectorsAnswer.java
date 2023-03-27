@@ -72,7 +72,7 @@ public class GroupingCollectorsAnswer {
     /**
      * Example:
      * p1 { name: "Alice", age: 17 }, p2 { name: "Dan", age: 18 }, p3 { name: "Jim", age: 54 } =>
-     * HashMap { true => { "Dan", "Jim" }, false => { "Alice" }}
+     * HashMap { true => { p2, p3 }, false => { p1 }}
      */     
     public static Map<Boolean, List<Person>> partitionByIsAllowedToVote(List<Person> persons) {
         return persons.stream()

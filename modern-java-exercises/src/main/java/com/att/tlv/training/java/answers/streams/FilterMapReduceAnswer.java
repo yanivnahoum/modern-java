@@ -27,7 +27,7 @@ public class FilterMapReduceAnswer {
         return persons.stream()
                 .filter(p -> p.id() > 1005)
                 .mapToInt(Person::age)
-                .reduce(1, (a, b) -> a * b);
+                .reduce(1, Math::multiplyExact);
     }
     
     /**
