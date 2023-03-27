@@ -3,6 +3,7 @@ package com.att.tlv.training.java.streams;
 import com.att.tlv.training.java.data.Player;
 import com.att.tlv.training.java.data.Players;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -15,7 +16,7 @@ import static java.util.Comparator.comparingLong;
 public class Sorting {
 
     public static void main(String[] args) {
-        new Sorting().sortInNaturalOrder();
+        new Sorting().sortByLengthOfLastName();
     }
 
     public void sortInNaturalOrder() {
@@ -26,7 +27,7 @@ public class Sorting {
         System.out.println(employees);
 
         // Employee implements Comparable<Employee>
-        List<Employee> sortedEmployees = employees.stream()
+        var sortedEmployees = employees.stream()
                 .sorted()
                 .toList();
 
@@ -47,7 +48,7 @@ public class Sorting {
     }
 
     public void sortByFirstName() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -59,7 +60,7 @@ public class Sorting {
     }
 
     public void sortByFirstNameDescending() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -71,7 +72,7 @@ public class Sorting {
     }
 
     public void sortById() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -83,7 +84,7 @@ public class Sorting {
     }
 
     public void sortByTeamNameAndThenSalary() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -95,7 +96,7 @@ public class Sorting {
     }
 
     public void sortByTeamNameAndThenSalaryDescending() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -107,7 +108,7 @@ public class Sorting {
     }
     
     public void sortByLengthOfLastName() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -119,7 +120,7 @@ public class Sorting {
                 .toList();
         
         System.out.println(sortedPlayers);
-        
+
         // And now descending order:
         sortedPlayers = players.stream()
                 .sorted(byLengthOfLastName.reversed())
@@ -128,7 +129,7 @@ public class Sorting {
     }
     
     public void sortByLengthOfLastName2() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
 
@@ -140,7 +141,7 @@ public class Sorting {
     }
     
     public void sortByFirstNameAgain() {
-        var players = Players.getAll();
+        var players = new ArrayList<>(Players.getAll());
         Collections.shuffle(players);
         System.out.println(players);
         
