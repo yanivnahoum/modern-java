@@ -1,13 +1,14 @@
 package com.att.tlv.training.java.optional;
 
+import java.util.List;
 import java.util.Optional;
 
 public class Optionals {
 
     public static void main(String[] args) {
-        Street street = new Street("Main", 2);
-        Address address = new Address(street, 6019000, "Dallas");
-        Company att = new Company(address, "at&t");
+        var street = new Street("Main", 2);
+        var address = new Address(street, 6019000, "Dallas");
+        var att = new Company(address, "at&t");
 
         new Optionals().printCityTheWrongWay(att);
     }
@@ -65,7 +66,7 @@ public class Optionals {
         
         System.out.println(streetName);
     }
-    
+
     private String someExpensiveOrRuntimeDependentCalculation() {
         return Double.toHexString(Math.random());
     }
@@ -77,25 +78,67 @@ public class Optionals {
                 .ifPresent(System.out::println);
     }
 
+    public void printStreetIfPresentElsePrintNA(Company company) {
+        company.getAddress()
+                .flatMap(Address::getStreet)
+                .map(Street::getName)
+                .ifPresentOrElse(System.out::println, () -> System.out.println("N/A"));
+    }
+
     public void printStreetOrThrow(Company company) {
         String streetName = company.getAddress()
                 .flatMap(Address::getStreet)
                 .map(Street::getName)
-                .orElseThrow(IllegalArgumentException::new);
-        
+                .orElseThrow();
+
         System.out.println(streetName);
     }
-    
+
+    public void printStreetOrThrowCustomException(Company company) {
+        String streetName = company.getAddress()
+                .flatMap(Address::getStreet)
+                .map(Street::getName)
+                .orElseThrow(IllegalArgumentException::new);
+
+        System.out.println(streetName);
+    }
+
     public void printStreetIfNotEmptyOrThrow(Company company) {
         String streetName = company.getAddress()
                 .flatMap(Address::getStreet)
                 .map(Street::getName)
                 .filter(name -> !name.isEmpty())
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow();
 
         System.out.println(streetName);
     }
-    
+
+    public void printStreetFromCompanyOrDefaultCompany(Company company, Company defaultCompany) {
+        String streetName = company.getAddress()
+                .or(defaultCompany::getAddress)
+                .flatMap(Address::getStreet)
+                .map(Street::getName)
+                .orElse("N/A");
+
+        System.out.println(streetName);
+    }
+
+    public void printAllAddresses(List<Company> companies) {
+        var addresses = companies.stream()
+                .map(Company::getAddress)
+                .filter(Optional::isPresent)
+                .map(Optional::get)
+                .toList();
+
+        // Better expressed as:
+        addresses = companies.stream()
+                .map(Company::getAddress)
+                .flatMap(Optional::stream)
+                .toList();
+
+        System.out.println(addresses);
+    }
+
     private static class Company {
 
         private final Address address;

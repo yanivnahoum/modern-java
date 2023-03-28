@@ -32,10 +32,10 @@ class OptionalsTest {
 
     @Test
     void testFindLengthOfLongestName() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         OptionalInt length = Optionals.findLengthOfLongestName(persons);
 
@@ -50,10 +50,10 @@ class OptionalsTest {
 
     @Test
     void testFindAverageId() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         OptionalDouble averageId = Optionals.findAverageId(persons);
 
@@ -69,12 +69,12 @@ class OptionalsTest {
 
     @Test
     void testFindFirstCentenarian() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 99);
-        Person jim = new Person(3000, "Jim", 21);
-        Person john = new Person(4000, "John", 100);
-        Person jeff = new Person(4000, "Jeff", 101);
-        List<Person> persons = List.of(alice, bob, jim, john, jeff);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 99);
+        var jim = new Person(3000, "Jim", 21);
+        var john = new Person(4000, "John", 100);
+        var jeff = new Person(4000, "Jeff", 101);
+        var persons = List.of(alice, bob, jim, john, jeff);
 
         Optional<Person> firstCentenarian = Optionals.findFirstCentenarian(persons);
 
@@ -83,10 +83,10 @@ class OptionalsTest {
 
     @Test
     void testFindFirstCentenarianWithNoCentenarians() {
-        Person alice = new Person(1000, "Alice", 18);
-        Person bob = new Person(2000, "Bob", 11);
-        Person jim = new Person(3000, "Jim", 10);
-        List<Person> persons = List.of(alice, bob, jim);
+        var alice = new Person(1000, "Alice", 18);
+        var bob = new Person(2000, "Bob", 11);
+        var jim = new Person(3000, "Jim", 10);
+        var persons = List.of(alice, bob, jim);
 
         Optional<Person> firstCentenarian = Optionals.findFirstCentenarian(persons);
 
@@ -166,5 +166,26 @@ class OptionalsTest {
     void testLogInfoIfPresentWithEmptyOptional() {
         Optionals.logInfoIfPresent(Optional.empty(), logger);
         verifyNoInteractions(logger);
+    }
+
+    @Test
+    void testGetAllChildrenUnderTheAgeOfThree() {
+        var anna = new Person(1001, "Anna", 3);
+        var ari = new Person(1002, "Ari", 2);
+        var aldo = new Person(1003, "Aldo", 1);
+        var alice = new Person(1000, "Alice", 40, List.of(anna, ari, aldo));
+
+        var bob = new Person(2000, "Bob", 18);
+
+        var john = new Person(1001, "John", 1);
+        var jane = new Person(1002, "Jane", 6);
+        var jim = new Person(3000, "Jim", 30, List.of(john, jane));
+        List<Optional<Person>> parents = List.of(
+                Optional.of(alice), Optional.empty(), Optional.of(bob), Optional.empty(), Optional.of(jim)
+        );
+
+        var babies = Optionals.getAllChildrenUnderTheAgeOfThree(parents);
+
+        assertThat(babies).containsExactly(ari, aldo, john);
     }
 }

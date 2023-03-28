@@ -31,7 +31,7 @@ public class Optionals {
      * 1. Optional.of("Hello World") -> "Hello World"
      * 2. Optional.of("Hello world") -> "Hello world"
      * 3. Optional.of("Hello there") -> Optional.empty()
-     * 3. Optional.empty() -> Optional.empty()
+     * 4. Optional.empty() -> Optional.empty()
      */
     public static Optional<String> getStringIfItContainsTheLetterW(Optional<String> str) {
         return Exercises.replaceThisWithSolution();     
@@ -45,13 +45,17 @@ public class Optionals {
      * Use the specified {@code Random } only if the specified number is empty.
      */
     public static double getNumberOrRandom(OptionalDouble number, Random random) {
-        return Exercises.replaceThisWithSolution();     
+        return Exercises.replaceThisWithSolution();
     }
-    
+
     /**
      * If the specified dateTime is not empty, log its string representation at info level (logger.info())
      */
     public static void logInfoIfPresent(Optional<LocalDateTime> dateTime, Logger logger) {
-        Exercises.replaceThisWithSolution();     
+        Exercises.replaceThisWithSolution();
+    }
+
+    public static List<Person> getAllChildrenUnderTheAgeOfThree(List<Optional<Person>> parents) {
+        return Exercises.replaceThisWithSolution();
     }
 }
