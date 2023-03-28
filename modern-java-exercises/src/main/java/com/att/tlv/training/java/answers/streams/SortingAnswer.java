@@ -44,7 +44,7 @@ public class SortingAnswer {
                 .toList();
     }
     
-    public static List<Person> sortByNameAndThenIdDescending(List<Person> persons) {
+    public static List<Person> sortByNameAscendingAndThenIdDescending(List<Person> persons) {
         return persons.stream()
                 .sorted(comparing(Person::name).thenComparing(comparingLong(Person::id).reversed()))
                 .toList();

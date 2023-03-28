@@ -30,7 +30,7 @@ public class Sorting {
         return Exercises.replaceThisWithSolution();
     }
     
-    public static List<Person> sortByNameAndThenIdDescending(List<Person> persons) {
+    public static List<Person> sortByNameAscendingAndThenIdDescending(List<Person> persons) {
         return Exercises.replaceThisWithSolution();
     }
     

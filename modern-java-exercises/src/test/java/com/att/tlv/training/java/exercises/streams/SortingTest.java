@@ -87,7 +87,7 @@ class SortingTest {
         var persons = newArrayList(alice, alice2, bob, jim, jim2);
         Collections.reverse(persons);
 
-        var sortedPersons = Sorting.sortByNameAndThenIdDescending(persons);
+        var sortedPersons = Sorting.sortByNameAscendingAndThenIdDescending(persons);
 
         assertThat(sortedPersons).containsExactly(alice2, alice, bob, jim2, jim);
     }
