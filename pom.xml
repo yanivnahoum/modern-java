@@ -11,6 +11,7 @@
         <revision>1.0.0-SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
+        <jackson-annotations.version>2.14.2</jackson-annotations.version>
         <junit-jupiter.version>5.9.2</junit-jupiter.version>
         <mockito.version>5.2.0</mockito.version>
         <assertj.version>3.24.2</assertj.version>
@@ -20,6 +21,12 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson-annotations.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>

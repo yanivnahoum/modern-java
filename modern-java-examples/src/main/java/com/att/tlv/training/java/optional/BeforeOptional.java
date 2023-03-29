@@ -21,7 +21,7 @@ public class BeforeOptional {
         
         
         // Otherwise know as the train wreck anti-pattern....
-        // No safe navigation operator as of Java 8 :-(
+        // No safe navigation operator as of Java 20 :-(
         // System.out.println(company?.getAddress()?.getStreet()?.getName());
     }
     
