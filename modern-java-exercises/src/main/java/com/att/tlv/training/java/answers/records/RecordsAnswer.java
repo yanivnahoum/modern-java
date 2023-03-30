@@ -19,10 +19,10 @@ public class RecordsAnswer {
      * <li>Remove methods that are not needed.</li>
      * </ul>
      */
-    record HttpClientProperties(URL baseUrl, Duration reponseTimeout) {
+    record HttpClientProperties(URL baseUrl, Duration responseTimeout) {
         public HttpClientProperties {
             requireNonNull(baseUrl, "baseUrl must not be null");
-            requireNonNull(reponseTimeout, "responseTimeout must not be null");
+            requireNonNull(responseTimeout, "responseTimeout must not be null");
         }
 
         public HttpClientProperties(URL baseUrl) {

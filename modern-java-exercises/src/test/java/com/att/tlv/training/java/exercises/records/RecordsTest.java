@@ -25,10 +25,10 @@ class RecordsTest {
 
     @Test
     void whenCreatedWithUrlAndResponseTimeout_thenBothAreCorrect() {
-        var reponseTimeout = Duration.ofSeconds(42);
-        var httpClientProperties = new HttpClientProperties(BASE_URL, reponseTimeout);
+        var responseTimeout = Duration.ofSeconds(42);
+        var httpClientProperties = new HttpClientProperties(BASE_URL, responseTimeout);
         assertThat(httpClientProperties.baseUrl()).isEqualTo(BASE_URL);
-        assertThat(httpClientProperties.responseTimeout()).isEqualTo(reponseTimeout);
+        assertThat(httpClientProperties.responseTimeout()).isEqualTo(responseTimeout);
     }
 
     @Test

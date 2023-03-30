@@ -25,7 +25,7 @@ class HttpClientProperties {
 
     private Duration responseTimeout;
 
-    public HttpClientProperties(URL baseUrl, Duration reponseTimeout) {
+    public HttpClientProperties(URL baseUrl, Duration responseTimeout) {
         Exercises.replaceThisWithSolution();
     }
 
