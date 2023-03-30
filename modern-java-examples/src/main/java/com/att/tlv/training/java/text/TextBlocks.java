@@ -1,13 +1,14 @@
 package com.att.tlv.training.java.text;
 
 public class TextBlocks {
-    // Before text blocks:
+    // Regular strings:
     String html = "<html>\n" +
             "    <body>\n" +
             "        <p>Hello, world</p>\n" +
             "    </body>\n" +
             "</html>\n";
 
+    // Text block
     String htmlTextBlock = """
             <html>
                 <body>

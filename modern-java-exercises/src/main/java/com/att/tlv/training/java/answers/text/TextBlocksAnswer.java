@@ -82,7 +82,7 @@ public class TextBlocksAnswer {
         return """
                 abc
                 ab\s
-                a\s\s
+                a \s
                 """;
     }
 }

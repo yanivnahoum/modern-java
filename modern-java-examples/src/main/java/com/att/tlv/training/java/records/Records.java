@@ -10,6 +10,8 @@ import java.util.Objects;
 
 import static java.util.Comparator.comparingDouble;
 
+// This class is a classic data-carrier. We want to model a simple coordinate of (x,y), but there's a lot of
+// boilerplate involved.
 final class Point {
     private final int x;
     private final int y;

@@ -17,6 +17,7 @@ public class Records {}
  * <li>Add a non-canonical c'tor that accepts URL baseUrl and sets responseTimeout to 10s.</li>
  * <li>Add a static factory method of(String baseUrl) that creates an HttpClientProperties.</li>
  * <li>Add an instance method baseUrlProtocol() that returns the baseUrl protocol.</li>
+ * <li>Remove methods that are not needed.</li>
  * </ul>
  */
 class HttpClientProperties {
