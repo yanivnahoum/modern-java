@@ -23,7 +23,7 @@ public class Records {}
 class HttpClientProperties {
     private URL baseUrl;
 
-    private Duration repsonseTimeout;
+    private Duration responseTimeout;
 
     public HttpClientProperties(URL baseUrl, Duration reponseTimeout) {
         Exercises.replaceThisWithSolution();
