@@ -10,7 +10,7 @@ import java.time.Duration;
 public class Records {}
 
 /**
- * Make this class a record with two header components: URL baseUrl and Duration reponseTimeout </br>
+ * Make this class a record with two header components: URL baseUrl and Duration responseTimeout </br>
  * <ul>
  * <li>If a null baseUrl is passed into the c'tor, throw a NPE with the following message: "baseUrl must not be null".</li>
  * <li>If a null responseTimeout is passed into the c'tor, throw a NPE with the following message: "responseTimeout must not be null".</li>
@@ -23,7 +23,7 @@ public class Records {}
 class HttpClientProperties {
     private URL baseUrl;
 
-    private Duration reponseTimeout;
+    private Duration repsonseTimeout;
 
     public HttpClientProperties(URL baseUrl, Duration reponseTimeout) {
         Exercises.replaceThisWithSolution();
@@ -44,7 +44,8 @@ class HttpClientProperties {
     public URL baseUrl() {
         return Exercises.replaceThisWithSolution();
     }
-    public Duration reponseTimeout() {
+
+    public Duration responseTimeout() {
         return Exercises.replaceThisWithSolution();
     }
 }

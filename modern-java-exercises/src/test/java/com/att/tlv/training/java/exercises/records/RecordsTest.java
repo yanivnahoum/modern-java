@@ -28,20 +28,20 @@ class RecordsTest {
         var reponseTimeout = Duration.ofSeconds(42);
         var httpClientProperties = new HttpClientProperties(BASE_URL, reponseTimeout);
         assertThat(httpClientProperties.baseUrl()).isEqualTo(BASE_URL);
-        assertThat(httpClientProperties.reponseTimeout()).isEqualTo(reponseTimeout);
+        assertThat(httpClientProperties.responseTimeout()).isEqualTo(reponseTimeout);
     }
 
     @Test
     void whenCreatedWithUrlOnly_thenResponseTimeoutIs10Seconds() {
         var httpClientProperties = new HttpClientProperties(BASE_URL);
-        assertThat(httpClientProperties.reponseTimeout()).isEqualTo(Duration.ofSeconds(10));
+        assertThat(httpClientProperties.responseTimeout()).isEqualTo(Duration.ofSeconds(10));
     }
 
     @Test
     void whenCreatedWithUrlAsString_thenBaseUrlIsCorrectAndResponseTimeoutIs10Seconds() throws MalformedURLException {
         var httpClientProperties = HttpClientProperties.of(BASE_URL.toString());
         assertThat(httpClientProperties.baseUrl()).isEqualTo(BASE_URL);
-        assertThat(httpClientProperties.reponseTimeout()).isEqualTo(Duration.ofSeconds(10));
+        assertThat(httpClientProperties.responseTimeout()).isEqualTo(Duration.ofSeconds(10));
     }
 
     @Test

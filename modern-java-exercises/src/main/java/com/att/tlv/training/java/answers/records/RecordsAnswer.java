@@ -9,7 +9,7 @@ import static java.util.Objects.requireNonNull;
 
 public class RecordsAnswer {
     /**
-     * Make this class a record with two header components: URL baseUrl and Duration reponseTimeout </br>
+     * Make this class a record with two header components: URL baseUrl and Duration responseTimeout </br>
      * <ul>
      * <li>If a null baseUrl is passed into the c'tor, throw a NPE with the following message: "baseUrl must not be null".</li>
      * <li>If a null responseTimeout is passed into the c'tor, throw a NPE with the following message: "responseTimeout must not be null".</li>
