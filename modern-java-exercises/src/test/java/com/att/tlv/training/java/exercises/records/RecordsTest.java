@@ -45,7 +45,7 @@ class RecordsTest {
     }
 
     @Test
-    void baseUrlProtocol_shouldReturnProtocolCorrectly(@Mock URL url) throws MalformedURLException {
+    void baseUrlProtocol_shouldReturnProtocolCorrectly(@Mock URL url) {
         var protocol = "protocol";
         when(url.getProtocol()).thenReturn(protocol);
         var httpClientProperties = new HttpClientProperties(url);

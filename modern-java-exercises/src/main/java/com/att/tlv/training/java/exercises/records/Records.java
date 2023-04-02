@@ -37,7 +37,7 @@ class HttpClientProperties {
         return Exercises.replaceThisWithSolution();
     }
 
-    public String baseUrlProtocol() throws MalformedURLException {
+    public String baseUrlProtocol() {
         return Exercises.replaceThisWithSolution();
     }
 

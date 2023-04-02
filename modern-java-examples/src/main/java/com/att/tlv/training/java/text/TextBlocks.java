@@ -25,8 +25,8 @@ public class TextBlocks {
 
     // Text block
     String queryWithTextBlock = """
-            SELECT "EMP_ID", "LAST_NAME”
-            FROM "EMPLOYEE_TB”
+            SELECT "EMP_ID", "LAST_NAME"
+            FROM "EMPLOYEE_TB"
             WHERE "CITY" = 'INDIANAPOLIS'
             ORDER BY "EMP_ID", "LAST_NAME";
             """;
@@ -74,7 +74,7 @@ public class TextBlocks {
             """;
 
     // Sometimes we wish to break a long single line string for readability:
-    String singleLineString = "Lorem ipsum dolor sit amet, consectetur adipiscing  " +
+    String singleLineString = "Lorem ipsum dolor sit amet, consectetur adipiscing " +
             "elit, sed do eiusmod tempor incididunt ut labore " +
             "et dolore magna aliqua.";
 

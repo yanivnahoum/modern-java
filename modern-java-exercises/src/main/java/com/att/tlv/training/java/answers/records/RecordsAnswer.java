@@ -33,7 +33,7 @@ public class RecordsAnswer {
             return new HttpClientProperties(new URL(baseUrl));
         }
 
-        public String baseUrlProtocol() throws MalformedURLException {
+        public String baseUrlProtocol() {
             return baseUrl.getProtocol();
         }
     }
