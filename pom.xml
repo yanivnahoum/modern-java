@@ -63,10 +63,16 @@
     <build>
         <pluginManagement>
             <plugins>
+                <!--
+                    Workaround for Intellij bug: https://youtrack.jetbrains.com/issue/IDEA-296303/Support-for-Maven-Compiler-Plugin-enablePreview-parameter
+                    Should be fixed in Intellij 2024.1.2
+                -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <compilerArgs>--enable-preview</compilerArgs>
+                    </configuration>
                 </plugin>
 
                 <plugin>
