@@ -32,7 +32,7 @@ interface StringCollection extends Iterable<String> {
     boolean remove(String s);
 
     /**
-     * Removes all of the elements of this collection that satisfy the given
+     * Removes all the elements of this collection that satisfy the given
      * predicate.
      * 
      * @param filter a predicate which returns {@code true} for elements to be removed.

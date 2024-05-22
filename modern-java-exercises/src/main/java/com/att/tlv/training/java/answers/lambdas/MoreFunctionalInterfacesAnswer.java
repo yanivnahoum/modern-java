@@ -2,6 +2,7 @@ package com.att.tlv.training.java.answers.lambdas;
 
 import com.att.tlv.training.java.exercises.data.Person;
 
+import java.util.Objects;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
@@ -65,7 +66,7 @@ public class MoreFunctionalInterfacesAnswer {
         return i -> i % 2 == 0;
     }
 
-    public BiPredicate<Person, String> isPersonAgeOver40AndIsStringNotNull() {
-        return (p, s) -> p.age() > 40 && s != null;
+    public BiPredicate<Person, String> isPersonAgeOver40AndNameEqualsSpecifiedString() {
+        return (p, s) -> p.age() > 40 && Objects.equals(p.name(), s);
     }
 }

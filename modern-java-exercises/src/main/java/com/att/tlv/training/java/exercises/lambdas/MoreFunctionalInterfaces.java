@@ -64,7 +64,7 @@ public class MoreFunctionalInterfaces {
         return replaceThisWithSolution();
     }
 
-    public BiPredicate<Person, String> isPersonAgeOver40AndIsStringNotNull() {
+    public BiPredicate<Person, String> isPersonAgeOver40AndNameEqualsSpecifiedString() {
         return replaceThisWithSolution();
     }
 }

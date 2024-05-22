@@ -31,7 +31,7 @@ public class MoreFunctionalInterfaces {
         Function<String, String> echo = s -> s;
         echo = Function.identity();
         
-        // Otherwise know as:
+        // Otherwise known as:
         UnaryOperator<String> op = s -> s + s;
         op = UnaryOperator.identity();
         // + specialized type IntUnaryOperator, LongUnaryOperator, DoubleUnaryOperator
