@@ -19,7 +19,7 @@ public class FilterMapReduce {
         
         
         
-        // And now the declarative (fuctional) way:
+        // And now the declarative (functional) way:
         sum = numbers.stream()
                 .map(e -> e * 2)
                 .reduce(0, (result, element) -> result + element);

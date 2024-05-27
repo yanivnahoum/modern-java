@@ -43,7 +43,7 @@ public class Creation {
     
     /**
      * Example:
-     * toStream("Java ", "8 ", "Rules!") => { "Java ", "8 ", "Rules!" }
+     * toStream("Java ", "21", "Rules!") => { "Java ", "21", "Rules!" }
      */    
     public static Stream<String> toStream(String... strings) {
         return Exercises.replaceThisWithSolution();

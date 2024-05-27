@@ -19,7 +19,7 @@ public class Streams {
     // like filter, map, reduce, find, match, sorted, and so on.
     // So like an iterator, we get a sequence of elements. Unlike iterators, they are evaluated
     // lazily and support parallel execution.
-    // Unlike collections, streams have no storage - they conveys elements from a source such as a
+    // Unlike collections, streams have no storage - they convey elements from a source such as a
     // data structure, an array, a generator function, or an I/O channel, through a pipeline of
     // computational operations.
     // Streams are functional in nature. An operation on a stream produces a result,
@@ -76,7 +76,7 @@ public class Streams {
     }
 
     public void finiteIterate() {
-        // for (int index=seed; hasNext.test(index); index = next.applyAsInt(index)) {...}
+        // for (int element=seed; hasNext.test(element); element = next.applyAsInt(element)) {...}
         IntStream numbers = IntStream.iterate(0, n -> n < 11, n -> n + 2);
     }
 
