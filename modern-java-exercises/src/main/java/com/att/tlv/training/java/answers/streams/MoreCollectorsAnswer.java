@@ -35,7 +35,7 @@ public class MoreCollectorsAnswer {
      * Example:
      * p1 { name: "Alice", id: 100 }, p2 { name: "Dan", id: 200 }, p3 { name: "Bob", id: 300 } => 600
      */
-    public static long getSumofIds(List<Person> persons) {
+    public static long getSumOfIds(List<Person> persons) {
         return persons.stream()
                 .collect(summingLong(Person::id));
     }

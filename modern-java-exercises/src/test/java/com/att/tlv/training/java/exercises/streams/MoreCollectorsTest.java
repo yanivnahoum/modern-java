@@ -10,7 +10,7 @@ import static com.att.tlv.training.java.exercises.streams.MoreCollectors.getLong
 import static com.att.tlv.training.java.exercises.streams.MoreCollectors.getNamesAsString;
 import static com.att.tlv.training.java.exercises.streams.MoreCollectors.getNumOfPersonsOlderThanX;
 import static com.att.tlv.training.java.exercises.streams.MoreCollectors.getSumOfEvenAges;
-import static com.att.tlv.training.java.exercises.streams.MoreCollectors.getSumofIds;
+import static com.att.tlv.training.java.exercises.streams.MoreCollectors.getSumOfIds;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MoreCollectorsTest {
@@ -35,20 +35,20 @@ class MoreCollectorsTest {
     }
 
     @Test
-    void testGetSumofIds() {
+    void testGetSumOfIds() {
         var alice = new Person(200, "Alice", 18);
         var bob = new Person(300, "Bob", 11);
         var jim = new Person(100, "Jim", 10);
         var persons = List.of(alice, bob, jim);
 
-        long sumOfIds = getSumofIds(persons);
+        long sumOfIds = getSumOfIds(persons);
 
         assertThat(sumOfIds).isEqualTo(alice.id() + bob.id() + jim.id());
     }
 
     @Test
     void testGetSumofIdsEmptyList() {
-        long sumOfIds = getSumofIds(Collections.emptyList());
+        long sumOfIds = getSumOfIds(Collections.emptyList());
 
         assertThat(sumOfIds).isEqualTo(0);
     }
