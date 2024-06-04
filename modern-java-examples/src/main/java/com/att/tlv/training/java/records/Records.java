@@ -57,8 +57,8 @@ final class Point {
     // 4. A toString method
 }
 
-// The record class is imlicitly final, and cannot be abstract.
-// It can't inherit from another class (similar to Enum).
+// The record class is implicitly final, and cannot be abstract.
+// It can't extend another class, but can implement interfaces (similar to Enum).
 // These restrictions emphasize that the API of a record class is defined solely by its state description,
 // and cannot be enhanced later by another class.
 record Range(long start, long end) {

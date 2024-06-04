@@ -20,8 +20,8 @@ public class BeforeOptional {
         
         
         
-        // Otherwise know as the train wreck anti-pattern....
-        // No safe navigation operator as of Java 20 :-(
+        // Otherwise known as the train wreck anti-pattern....
+        // No safe navigation operator as of Java 23 :-(
         // System.out.println(company?.getAddress()?.getStreet()?.getName());
     }
     
