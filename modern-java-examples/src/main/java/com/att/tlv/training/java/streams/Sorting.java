@@ -147,7 +147,7 @@ public class Sorting {
         
         // The purpose of this example is to highlight the difference between the two overloads of Comparator.comparing().
         // The overload that takes one argument requires a keyExtractor that returns a Comparable<T>, 
-        // while the overload that takes two argument does not need a comparable key since a comparator for the key
+        // while the overload that takes two arguments does not need a comparable key since a comparator for the key
         // is provided as the second argument.
         var sortedPlayers = players.stream()
                 .sorted(comparing(p -> p, comparing(Player::firstName)))
