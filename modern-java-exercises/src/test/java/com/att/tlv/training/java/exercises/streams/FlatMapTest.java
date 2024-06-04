@@ -11,18 +11,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class FlatMapTest {
 
-    private static final List<Person> PERSONS_WITH_NO_CHILDREN;
-
-    static {
-        var alice = new Person(1000, "Alice", 18);
-        var bob = new Person(2000, "Bob", 11);
-        var jim = new Person(3000, "Jim", 10);
-        PERSONS_WITH_NO_CHILDREN = List.of(alice, bob, jim);
-    }
+    private static final List<Person> PERSONS_WITH_NO_CHILDREN = List.of(
+            new Person(1000, "Alice", 18),
+            new Person(2000, "Bob", 11),
+            new Person(3000, "Jim", 10)
+    );
 
     @Test
     void testGetUniqueChildrenNames() {
-        final String ANDY = "Andy";
+        String ANDY = "Andy";
         Person andy = new Person(1002, ANDY, 3);
         Person anna = new Person(1001, "Anna", 5);
         var alice = new Person(1000, "Alice", 35, anna, andy);
