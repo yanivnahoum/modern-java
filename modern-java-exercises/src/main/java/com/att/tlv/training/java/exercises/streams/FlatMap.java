@@ -21,9 +21,9 @@ public class FlatMap {
     
     /**
      * Example:
-     * p1 { name: "Alice", children: [ { name: "Adam", children: [ { name: "Adam", age: 20 } ] }, { name: "Anna", children: [] } ] }, 
-     * p2 { name: "Dan", children: [ { name: "David", children: [] }, { name: "Donna", children: [ { name: "Adam", age: 30 } ] } ] },
-     * p3 { name: "Bob", children: [ { name: "Adam", children: [ { name: "Adam", age: 10 } ] } ] } => 60
+     * p1 { name: "Alice", children: [ { name: "Adam", children: [ { name: "Anabel", age: 20 } ] }, { name: "Anna", children: [] } ] },
+     * p2 { name: "Dan", children: [ { name: "David", children: [] }, { name: "Donna", children: [ { name: "Don", age: 30 } ] } ] },
+     * p3 { name: "Bob", children: [ { name: "Bill", children: [ { name: "Brian", age: 10 } ] } ] } => 60
      */     
     public static int getSumOfGrandChildrenAges(List<Person> persons) {
         return Exercises.replaceThisWithSolution();

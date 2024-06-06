@@ -51,6 +51,6 @@ public class StreamOptionals {
                 .ifPresent(System.out::println);
         
         // Same result as findFirst() in sequential ordered streams.
-        // May be differnt when adding parallel()
+        // May be different when adding parallel()
     }
 }
