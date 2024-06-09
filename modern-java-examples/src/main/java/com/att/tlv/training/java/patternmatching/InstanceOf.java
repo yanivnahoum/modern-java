@@ -35,6 +35,4 @@ public class InstanceOf {
         // s is in scope
         System.out.println(s.trim());
     }
-
-
 }

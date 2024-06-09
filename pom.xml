@@ -12,10 +12,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>21</maven.compiler.release>
         <maven.compiler.enablePreview>true</maven.compiler.enablePreview>
-        <jackson-annotations.version>2.17.1</jackson-annotations.version>
+        <jackson.version>2.17.1</jackson.version>
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
         <mockito.version>5.12.0</mockito.version>
         <assertj.version>3.26.0</assertj.version>
+        <lombok.version>1.18.32</lombok.version>
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
@@ -25,8 +26,8 @@
         <dependencies>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson-annotations.version}</version>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
 
             <dependency>
@@ -51,6 +52,12 @@
                 <groupId>org.assertj</groupId>
                 <artifactId>assertj-core</artifactId>
                 <version>${assertj.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -12,11 +12,11 @@ import static org.junit.jupiter.params.provider.Arguments.arguments;
 class SealedClassesTest {
     @ParameterizedTest
     @MethodSource
-    void shapeAreaIsCalulatedCorrectly(Shape shape, double area) {
+    void shapeAreaIsCalculatedCorrectly(Shape shape, double area) {
         assertThat(shape.getArea()).isEqualTo(area);
     }
 
-    static Stream<Arguments> shapeAreaIsCalulatedCorrectly() {
+    static Stream<Arguments> shapeAreaIsCalculatedCorrectly() {
         return Stream.of(
                 arguments(new Circle(5), 78.53981633974483),
                 arguments(new Square(4), 16D),
