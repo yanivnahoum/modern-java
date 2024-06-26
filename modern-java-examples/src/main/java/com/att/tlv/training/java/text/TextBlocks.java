@@ -3,10 +3,10 @@ package com.att.tlv.training.java.text;
 public class TextBlocks {
     // Regular strings:
     String html = "<html>\n" +
-            "    <body>\n" +
-            "        <p>Hello, world</p>\n" +
-            "    </body>\n" +
-            "</html>\n";
+                  "    <body>\n" +
+                  "        <p>Hello, world</p>\n" +
+                  "    </body>\n" +
+                  "</html>\n";
 
     // Text block
     String htmlTextBlock = """
@@ -19,9 +19,9 @@ public class TextBlocks {
 
     // Regular strings:
     String query = "SELECT \"EMP_ID\", \"LAST_NAME\" " +
-            "FROM \"EMPLOYEE_TB\"\n" +
-            "WHERE \"CITY\" = 'INDIANAPOLIS'\n" +
-            "ORDER BY \"EMP_ID\", \"LAST_NAME\";\n";
+                   "FROM \"EMPLOYEE_TB\"\n" +
+                   "WHERE \"CITY\" = 'INDIANAPOLIS'\n" +
+                   "ORDER BY \"EMP_ID\", \"LAST_NAME\";\n";
 
     // Text block
     String queryWithTextBlock = """
@@ -75,8 +75,8 @@ public class TextBlocks {
 
     // Sometimes we wish to break a long single line string for readability:
     String singleLineString = "Lorem ipsum dolor sit amet, consectetur adipiscing " +
-            "elit, sed do eiusmod tempor incididunt ut labore " +
-            "et dolore magna aliqua.";
+                              "elit, sed do eiusmod tempor incididunt ut labore " +
+                              "et dolore magna aliqua.";
 
     // The \<line-terminator> escape sequence explicitly suppresses the insertion of a newline character.
     // It's applicable in text blocks only
