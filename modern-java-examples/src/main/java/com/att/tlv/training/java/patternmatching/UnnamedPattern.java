@@ -36,7 +36,7 @@ public class UnnamedPattern {
     void loops(List<String> names) {
         int i = 0;
         for (var _ : names) {
-            System.out.println("name #" + i);
+            System.out.println("name #" + i++);
         }
 
         // Or
