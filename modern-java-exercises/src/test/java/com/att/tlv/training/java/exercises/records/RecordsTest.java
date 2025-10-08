@@ -6,6 +6,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.Duration;
 
@@ -68,8 +70,8 @@ class RecordsTest {
 
     private static URL createURL() {
         try {
-            return new URL("https://www.google.com");
-        } catch (MalformedURLException e) {
+            return new URI("https://www.google.com").toURL();
+        } catch (MalformedURLException | URISyntaxException e) {
             throw new RuntimeException(e);
         }
     }

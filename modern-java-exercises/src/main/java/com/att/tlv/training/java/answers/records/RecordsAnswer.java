@@ -2,6 +2,8 @@ package com.att.tlv.training.java.answers.records;
 
 
 import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.time.Duration;
 
@@ -29,8 +31,8 @@ public class RecordsAnswer {
             this(baseUrl, Duration.ofSeconds(10));
         }
 
-        public static HttpClientProperties of(String baseUrl) throws MalformedURLException {
-            return new HttpClientProperties(new URL(baseUrl));
+        public static HttpClientProperties of(String baseUrl) throws MalformedURLException, URISyntaxException {
+            return new HttpClientProperties(new URI(baseUrl).toURL());
         }
 
         public String baseUrlProtocol() {
